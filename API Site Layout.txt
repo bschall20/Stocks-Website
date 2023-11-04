@@ -1,0 +1,94 @@
+API Website Template: 
+* All sources so far from Angela course: 	https://github.com/appbrewery/public-api-lists
+
+
+
+
+*****************************************************************************************************
+------Stocks-Room (like stockroom?)------
+
+* Include stock graphs of stocks I like from my TDA:
+	- Maybe user can make their own list?
+	- Finance: 		https://github.com/appbrewery/public-api-lists#finance
+	- Currency Exchange:	https://github.com/appbrewery/public-api-lists#currency-exchange
+	- Crypto: 		https://github.com/appbrewery/public-api-lists#cryptocurrency
+
+* News section on companies:
+	- News: 		https://github.com/appbrewery/public-api-lists#news
+	- Events:		https://github.com/appbrewery/public-api-lists#events
+	- Calendar: 		https://github.com/appbrewery/public-api-lists#calendar
+		- List Earnings dates and witching fridays and such
+
+* Other possibilities in news:
+	- Jobs?: 		https://github.com/appbrewery/public-api-lists#jobs
+	- Business?: 		https://github.com/appbrewery/public-api-lists#business
+	- Environment?: 	https://github.com/appbrewery/public-api-lists#environment
+	- Government?:		https://github.com/appbrewery/public-api-lists#government
+	- Health?: 		https://github.com/appbrewery/public-api-lists#health
+	- Sci & Math?:		https://github.com/appbrewery/public-api-lists#science--math
+	- Security?:		https://github.com/appbrewery/public-api-lists#security
+	- Social?: 		https://github.com/appbrewery/public-api-lists#social
+	- Weather? (need news):	https://github.com/appbrewery/public-api-lists#weather
+
+* Side bar:
+	- List companies in each sector: (figure out if SPY or NASDAQ?)
+		- () Energy
+		- () Materials
+		- () Industrials
+		- () Utilities
+		- () Healthcare
+		- () Financials
+		- () Consumer Discretionary
+		- () Consumer Staples
+		- () Information Technology
+		- () Communication Services
+		- () Real Estate
+
+
+
+Summary:
+- Have calendar with witching calender + Earning Reports + quarters. Think pics shown in Jovan's discord
+- Have chart with selection of graphs
+	- Would like to toggle on/off indicators I use
+- News section for companies listed on chart?
+	- Twitter section as well
+		- Follow accounts on a new acct, link feed to site?
+	- Sectors on side bar to expand and see example companies
+		- ie: xxtickerxx (Energy) ---> expands into top companies of it just to see examples
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************************************************************************
+API Website 2 Template:
+------AP-Island------
+* 12 different APIs:
+	1.) Weather (at top with greeting? or in own box for 3x4 layout)
+	2.) Stocks graph
+	3.) News
+	4.) 
+	5.) 
+	6.) 
+	7.) 
+	8.) 
+	9.) 
+	10.) 
+	11.) 
+	12.) Spotify bar at bottom of page
+
+
+
+*******************
+Websites to use:
+pattern.monster			= website backgrounds
+
