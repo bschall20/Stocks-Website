@@ -1,0 +1,84 @@
+/* COLORS: https://colorhunt.co/palette/a7d397f5eec8d0d4ca555843\
+ICONS: https://fontawesome.com/icons/apple?f=brands&s=solid */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* *************************TOP PAGE************************* */
+header {
+    background-color: rgb(228, 228, 228);
+    border: .25rem solid #22b14c;
+    display: flex;
+    flex-direction: row;
+    padding: 3rem 0rem 3rem 1.5rem;
+}
+
+nav {
+    align-self: center;
+    margin-left: auto;
+    padding-right: 10rem;
+}
+
+.navbarName {
+    align-self: center;
+    font-size: 2rem;
+}
+
+.navbarList {
+    list-style: none;
+}
+
+.navbarList li {
+    display: inline;
+    font-size: 1.5rem;
+    padding-left: 5rem;
+}
+
+li a, li a:visited, .navbarName a {
+    color: black;
+    text-decoration: none;
+}
+
+.selectNav {
+    text-decoration: underline;
+    text-decoration-color: black;
+    color: white;
+}
+
+/* *************************MAIN PAGE************************* */
+
+.sideBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(228, 228, 228);
+    border-right: .25rem solid #22b14c;
+    border-bottom: .25rem solid #22b14c; */
+    border-right: .5rem solid rgb(228, 228, 228);
+    border-bottom: .5rem solid rgb(228, 228, 228);
+    height: 80vh;
+    width: 20vw;
+    float:left;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
