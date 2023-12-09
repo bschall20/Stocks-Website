@@ -8,8 +8,11 @@ API Website Template:
 ------Stocks-Room (like stockroom?)------
 
 * Include stock graphs of stocks I like from my TDA:
+ex I like: https://www.syncfusion.com/blogs/post/get-started-with-javascript-stock-chart.aspx
 	- Maybe user can make their own list?
 	- Finance: 		https://github.com/appbrewery/public-api-lists#finance
+		- Stock info: 	https://site.financialmodelingprep.com/developer/docs#exchange-symbols-stock-list
+		- Charting:	https://apexcharts.com/docs/installation/
 	- Currency Exchange:	https://github.com/appbrewery/public-api-lists#currency-exchange
 	- Crypto: 		https://github.com/appbrewery/public-api-lists#cryptocurrency
 

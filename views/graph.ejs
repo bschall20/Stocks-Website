@@ -1,14 +1,55 @@
 <%- include("partials/header.ejs") %>
 
 <script type="text/javascript">
-    home.classList.remove("selectNav");
-    graph.classList.add("selectNav");
-    news.classList.remove("selectNav");
+    home.classList.remove("selectedNav");
+    graph.classList.add("selectedNav");
+    news.classList.remove("selectedNav");
 </script>
 
+
+
 <div class="mainContent">
-    <p>HELLO, THIS IS MY GRAPH PAGE!</p>
+    <% if (locals.stock) {%>
+    <h2 id="stockTitle">
+        <%= stock.companyName %>
+        (<%= stock.symbol %>)
+    </h2>
+    
+    <% } else{ %>
+    <h2 id="stockTitle">Select a stock!</h2>
+    <% } %>
+
+
+    <form action="/graph" class="form" method="POST">
+        <select name="symbol" class="form-select">
+            <option value="" data-display="Select">Select a Stock</option>
+            <option value="AAPL">AAPL (Apple)</option>
+            <option value="AMD">AMD (Advanced Micro Devices)</option>
+            <option value="AMZN">AMZN (Amazon)</option>
+            <option value="BA">BA (Boeing)</option>
+            <option value="BABA">BABA (Alibaba)</option>
+            <option value="DIS">DIS (Disney)</option>
+            <option value="F">F (Ford)</option>
+            <option value="GME">GME (Gamestop)</option>
+            <option value="GOOG">GOOG (Google)</option>
+            <option value="IWM">IWM (Russell 2000)</option>
+            <option value="META">META (Meta Platforms)</option>
+            <option value="MSFT">MSFT (Microsoft)</option>
+            <!-- <option value="NDX">NDX (NASDAQ 100)</option> -->
+            <option value="NFLX">NFLX (Netflix)</option>
+            <option value="NVDA">NVDA (Nvidia)</option>
+            <option value="QQQ">QQQ (QQQ)</option>
+            <option value="SNAP">SNAP (Snap Inc)</option>
+            <!-- <option value="SPX">SPX (S&P 500)</option> -->
+            <option value="SPY">SPY (S&P 500)</option>
+            <option value="TSLA">TSLA (Tesla)</option>
+        </select>
+        <button type="submit" class="form-submit">Go</button>
+    </form>
+
+
 </div>
+
 
 
 <%- include("partials/footer.ejs") %>

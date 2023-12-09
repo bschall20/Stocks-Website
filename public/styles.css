@@ -21,6 +21,10 @@ nav {
     padding-right: 10rem;
 }
 
+h2 {
+    margin-bottom: 1rem;
+}
+
 .navbarName {
     align-self: center;
     font-size: 2rem;
@@ -41,7 +45,7 @@ li a, li a:visited, .navbarName a {
     text-decoration: none;
 }
 
-.selectNav {
+.selectedNav {
     text-decoration: underline;
     text-decoration-color: black;
     color: white;
@@ -68,6 +72,7 @@ li a, li a:visited, .navbarName a {
     justify-content: center;
     align-items: center;
     height: 80vh;
+    flex-direction: column;
 }
 
 
