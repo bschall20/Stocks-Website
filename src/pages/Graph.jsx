@@ -15,47 +15,29 @@ function Graph() {
     axios.get(url)
     .then((res) => {
       setStockData(res.data);
+      console.log("Use Effect:");
       console.log(res.data);
     })
   }, [url]);
 
   function HandleSubmit(e) {
-    console.log(`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
-
     setTimeframe(e.target[1].value);      //TIMEFRAME
     setSymbol(e.target[0].value);         //STOCK
     setDateRange(returnDate(e.target[1].value));
     setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${e.target[1].value}/${e.target[0].value}?${returnDate(e.target[1].value)}&apikey=${stockKey}`);
 
-    // axios.get(url)
-    //   .then((res) => {
-    //     setStockData(res.data);
-    //     console.log(res.data);
-    //   })
-
     e.preventDefault();
   }
 
 
-  function DefaultStockData() {
-    axios.get(`https://financialmodelingprep.com/api/v3/historical-chart/5min/AAPL?${returnDate('5min')}&apikey=${stockKey}`)
-      .then((res) => {
-        setStockData(res.data);
-        //console.log(res.data);
-      })
-    //console.log("DEFAULT STOCK DATA() WAS CALLED!");
-  }
-
-  function RequestedStockData() {
-    console.log("REQUESTED STOCK DATA() WAS CALLED!");
-    axios.get(url)
-      .then((res) => {
-        setStockData(res.data);
-        console.log(res.data);
-      })
-    console.log("REQUESTED STOCK DATA() WAS FINISHED!");
-  }
-
+  // function DefaultStockData() {
+  //   axios.get(`https://financialmodelingprep.com/api/v3/historical-chart/5min/AAPL?${returnDate('5min')}&apikey=${stockKey}`)
+  //     .then((res) => {
+  //       setStockData(res.data);
+  //       console.log("Use DefaultStockData:");
+  //       console.log(res.data);
+  //     })
+  // }
 
   return <div className="main-content">
     <form action="/graph" className="form" method="" onSubmit={HandleSubmit}>
@@ -96,13 +78,13 @@ function Graph() {
       <button type="submit" className="form-submit">Go</button>
     </form>
 
-    {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
+    {/* {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
     {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
     {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
     {console.log(`Rendered in HTML Timeframe: ${timeframe}`)}
     {console.log(`Rendered in HTML Stock: ${symbol}`)}
     {console.log(`Rendered in HTML Date Range: ${dateRange}`)}
-    {console.log(`Rendered in HTML API Data Link: ${url}`)}
+    {console.log(`Rendered in HTML API Data Link: ${url}`)} */}
 
 
     <br />
@@ -140,24 +122,11 @@ function Graph() {
             </div>
           );
         }
-      }) : DefaultStockData() && stockData.map((dataObj, index) => {
-        if (index <= 3 && index >= 0) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
-          return (
-            <div className="" key={index}>
-              <p className="">Key: {index}</p>
-              <p className="">Date: {dataObj.date}</p>
-              <p className="">Open: {dataObj.open}</p>
-              <p className="">High: {dataObj.high}</p>
-              <p className="">Low: {dataObj.low}</p>
-              <p className="">Close: {dataObj.close}</p>
-              <br />
-            </div>
-          );
-        }
-      })
+      }) : null
     }
 
-    {/* <StockChart /> */} {/*UNCOMMENT THIS WHEN DONE FOR GRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+    {/* <StockChart />  */}
+    {/*UNCOMMENT THIS WHEN DONE FOR GRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
 
   </div >
 }
