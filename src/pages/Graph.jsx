@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import returnDate from "../components/getDate";
-import StockChart from "../components/ChartGraph"
+import StockChart from "../components/ChartGraph";
+
 const stockKey = process.env.REACT_APP_FMP_API_KEY;
 
 function Graph() {
@@ -13,18 +14,20 @@ function Graph() {
 
   useEffect(() => {
     axios.get(url)
-    .then((res) => {
-      setStockData(res.data);
-      console.log("Use Effect:");
-      console.log(res.data);
-    })
+      .then((res) => {
+        setStockData(res.data);
+        console.log("Use Effect:");
+        console.log(res.data);
+      })
   }, [url]);
 
   function HandleSubmit(e) {
-    setTimeframe(e.target[1].value);      //TIMEFRAME
-    setSymbol(e.target[0].value);         //STOCK
+    let newTime = e.target[1].value;
+    let newSymbol = e.target[0].value;
+    setTimeframe(newTime);      //TIMEFRAME
+    setSymbol(newSymbol);         //STOCK
     setDateRange(returnDate(e.target[1].value));
-    setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${e.target[1].value}/${e.target[0].value}?${returnDate(e.target[1].value)}&apikey=${stockKey}`);
+    setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${newTime}/${newSymbol}?${returnDate(newTime)}&apikey=${stockKey}`);
 
     e.preventDefault();
   }
@@ -40,8 +43,8 @@ function Graph() {
   // }
 
   return <div className="main-content">
-    <form action="/graph" className="form" method="" onSubmit={HandleSubmit}>
-      <select name="symbol" className="form-select" defaultValue={"Select"}>
+    <form action="/graph" className="stock-form" method="" onSubmit={HandleSubmit}>
+      <select name="symbol" className="stock-select" defaultValue={"Select"}>
         <option value="Select">Select a Stock</option>
         <option value="AAPL">AAPL (Apple)</option>
         <option value="AMD">AMD (Advanced Micro Devices)</option>
@@ -64,7 +67,7 @@ function Graph() {
         <option value="SPY">SPY (S&P 500)</option>
         <option value="TSLA">TSLA (Tesla)</option>
       </select>
-      <select name="timeframe" className="form-select" defaultValue={"Select"}>
+      <select name="timeframe" className="time-select" defaultValue={"Select"}>
         <option value="Select">Select a Timeframe</option>
         <option value="1min">1 Min</option>
         <option value="5min">5 Min</option>
@@ -125,8 +128,9 @@ function Graph() {
       }) : null
     }
 
-    {/* <StockChart />  */}
-    {/*UNCOMMENT THIS WHEN DONE FOR GRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+    <div className="chart">
+      <StockChart />
+    </div>
 
   </div >
 }

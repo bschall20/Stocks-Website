@@ -66,17 +66,22 @@ li a, .navbar-name a {
 
 .main-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
+  align-items: flex-start;
+  /* height: 80vh; */
   flex-direction: column;
+  padding-top: 5px;
+  /* border: 2px solid black; */
+}
+
+.stock-form, .stock-select, .time-select {
+  border: 2px solid green;
+  color: green;
 }
 
 
-
-#chart {
-  max-width: 650px;
-  margin: 35px auto;
+.chart {
+  background-color: silver;
+  margin: auto;
 }
 
 
