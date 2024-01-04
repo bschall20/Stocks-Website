@@ -78,10 +78,18 @@ li a, .navbar-name a {
   color: green;
 }
 
+.error-API{
+  color: red;
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: auto;
+  margin-bottom: 10px;
+}
 
 .chart {
   background-color: silver;
   margin: auto;
+  margin-bottom: 50px;
 }
 
 

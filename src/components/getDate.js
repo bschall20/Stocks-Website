@@ -35,7 +35,9 @@ function returnDate(timeframe) {
     var days = 0;
     //Need to make variable equal to what time is selected on graph.ejs
     if (timeframe === "1min") {
-        days = 1;
+        days = 2;           // 2 days, instead of 1, because if checked between 0000 and 0929, chart is empty.
+                            // Could solve with editing time to check if past 0930 but then chart will have very little. 
+                            // Leaving at 2 days.
     }
     else if (timeframe === "5min") {
         days = 5;

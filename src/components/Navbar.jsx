@@ -31,6 +31,12 @@ const Navbar = () => {
                 </NavLink>
             </h1>
             <nav>
+            {/* 
+            CLOCK IN EST (GREEN LIGHT IF MARKET OPEN, RED IF NOT)
+            ADD NAV LINE OF SELECTED CHART
+            ARRAY'S LAST PRICE (last a 1600 then most recent one? say at close and after hours)
+            NEXT EARNINGS DATE
+            */}
                 <ul className="navbar-list">
                     <li className="home">
                         <NavLink to="/" className={({ isActive }) => (isActive ? 'selected-nav' : null)}>

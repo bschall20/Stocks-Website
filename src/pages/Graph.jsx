@@ -6,20 +6,32 @@ import StockChart from "../components/ChartGraph";
 const stockKey = process.env.REACT_APP_FMP_API_KEY;
 
 function Graph() {
-  const [timeframe, setTimeframe] = useState(`5min`);
-  const [symbol, setSymbol] = useState(`AAPL`);
+  const [errorMessage, setErrorMessage] = useState("")
+  const [timeframe, setTimeframe] = useState(`1hour`);
+  const [symbol, setSymbol] = useState(`SPY`);
   const [dateRange, setDateRange] = useState(returnDate(timeframe));
   const [url, setUrl] = useState(`https://financialmodelingprep.com/api/v3/historical-chart/${timeframe}/${symbol}?${dateRange}&apikey=${stockKey}`);
   const [stockData, setStockData] = useState();
+  let dataArr = [];
 
   useEffect(() => {
     axios.get(url)
       .then((res) => {
         setStockData(res.data);
-        console.log("Use Effect:");
-        console.log(res.data);
+        // console.log("Use Effect:");
+        // console.log(res.data);
+      })
+      .catch(error => {
+        //console.log(error);
+        console.log(error.message)
+        if (error.message === "Request failed with status code 429") {
+          setErrorMessage("Too many requests sent to Financial Modeling Prep (251/251). Please wait until tomorrow to request more.")
+          // console.log(errorMessage)
+        }
+        return error;
       })
   }, [url]);
+
 
   function HandleSubmit(e) {
     let newTime = e.target[1].value;
@@ -27,25 +39,22 @@ function Graph() {
     setTimeframe(newTime);      //TIMEFRAME
     setSymbol(newSymbol);         //STOCK
     setDateRange(returnDate(e.target[1].value));
-    setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${newTime}/${newSymbol}?${returnDate(newTime)}&apikey=${stockKey}`);
+    //setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${newTime}/${newSymbol}?${returnDate(newTime)}&apikey=${stockKey}`);
+    if (newTime === "daily") {
+      setUrl(`https://financialmodelingprep.com/api/v3/historical-price-full/${newSymbol}?apikey=${stockKey}`);
+    }
+    else {
+      setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${newTime}/${newSymbol}?${returnDate(newTime)}&apikey=${stockKey}`);
+    }
 
     e.preventDefault();
   }
 
 
-  // function DefaultStockData() {
-  //   axios.get(`https://financialmodelingprep.com/api/v3/historical-chart/5min/AAPL?${returnDate('5min')}&apikey=${stockKey}`)
-  //     .then((res) => {
-  //       setStockData(res.data);
-  //       console.log("Use DefaultStockData:");
-  //       console.log(res.data);
-  //     })
-  // }
-
   return <div className="main-content">
     <form action="/graph" className="stock-form" method="" onSubmit={HandleSubmit}>
-      <select name="symbol" className="stock-select" defaultValue={"Select"}>
-        <option value="Select">Select a Stock</option>
+      <select name="symbol" className="stock-select" defaultValue={"SPY"}>
+        {/* <option value="Select">Select a Stock</option> */}
         <option value="AAPL">AAPL (Apple)</option>
         <option value="AMD">AMD (Advanced Micro Devices)</option>
         <option value="AMZN">AMZN (Amazon)</option>
@@ -67,16 +76,16 @@ function Graph() {
         <option value="SPY">SPY (S&P 500)</option>
         <option value="TSLA">TSLA (Tesla)</option>
       </select>
-      <select name="timeframe" className="time-select" defaultValue={"Select"}>
-        <option value="Select">Select a Timeframe</option>
+      <select name="timeframe" className="time-select" defaultValue={"1hour"}>
+        {/* <option value="Select">Select a Timeframe</option> */}
         <option value="1min">1 Min</option>
         <option value="5min">5 Min</option>
         <option value="15min">15 Min</option>
         <option value="30min">30 Min</option>
         <option value="1hour">1 Hour</option>
         <option value="4hour">4 Hour</option>
-        {/* <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option> */}
+        <option value="daily">Daily</option>
+        {/* <option value="weekly">Weekly</option> */}
       </select>
       <button type="submit" className="form-submit">Go</button>
     </form>
@@ -102,17 +111,16 @@ function Graph() {
 
 
     {/* Date - Open - High - Low - Close */}
-    {/* 
-    Need to keep array from newest at index 0 as this is only way the days will be in order.
-    If oldest is at index[0], then it lists oldest day, times go down from 1600-0930, 
-    then next day forward at same prices 
-    ie: 12/25/23 1600 down to 0930, then 12/26/23 1600-0930
-    near impossible to make it order every day.
-    */}
 
-    {
+
+    {/* {
       stockData ? stockData.map((dataObj, index) => {
         if (index <= 3 && index >= 0) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
+          dataArr.unshift({
+            x: new Date(`${dataObj.date}`),
+            y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
+          },)
+          
           return (
             <div className="" key={index}>
               <p className="">Key: {index}</p>
@@ -126,10 +134,43 @@ function Graph() {
           );
         }
       }) : null
+    } */}
+
+
+    {/*  THIS IS FOR REMOVING DAILY. CAN BE UNCOMMENTED IF WANT TO REMOVE (due to nested loop)
+    {
+      stockData ? stockData.map((dataObj, index) => {
+        dataArr.unshift({
+          x: new Date(`${dataObj.date}`),
+          y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
+        },)
+      }) : null
+    } */}
+
+    {
+      stockData ?
+        stockData.historical ? stockData.historical.map((dataObj, index) => {         // See if daily was selected then display.
+          dataArr.unshift({                                                            // Is slow due to so many candles.
+            x: new Date(`${dataObj.date}`),                                            // NEED TO FIX NESTED LOOP HERE
+            y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
+          },)
+        }) : stockData.map((dataObj, index) => {                                      // If not daily, display proper data
+          dataArr.unshift({
+            x: new Date(`${dataObj.date}`),
+            y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
+          },)
+        }) : <div className="error-API">
+          <p>{errorMessage}</p>
+        </div>
     }
 
+
     <div className="chart">
-      <StockChart />
+      <StockChart
+        symbol={symbol}
+        timeframe={timeframe}
+        data={dataArr}
+      />
     </div>
 
   </div >
@@ -137,23 +178,3 @@ function Graph() {
 
 
 export default Graph;
-
-
-// REFERENCE: https://apexcharts.com/docs/creating-first-javascript-chart/#
-// import ApexCharts from 'apexcharts'
-// var options = {
-//     chart: {
-//       type: 'line'
-//     },
-//     series: [{
-//       name: 'sales',
-//       data: [30,40,35,50,49,60,70,91,125]
-//     }],
-//     xaxis: {
-//       categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-//     }
-//   }
-
-//   var chart = new ApexCharts(document.getElementById("root"), options);
-
-//   export default chart;
