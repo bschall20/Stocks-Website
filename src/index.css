@@ -71,10 +71,10 @@ li a, .navbar-name a {
 }
 
 .news-card {
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 10px 10px 0px;
-  margin: 20px 0px;
+  border: .4rem solid rgba(0, 110, 255, 0.6);
+  border-radius: 1.2rem;
+  padding: .25rem 0rem 0rem;
+  margin: 1rem 0rem 2rem;
   /* font-size: .8rem; */
 }
 
@@ -95,7 +95,8 @@ li a, .navbar-name a {
   padding: 5px;
   width: 10px; */
   height: 1rem;
-  padding: .35rem;
+  padding: .25rem;
+  margin: 0rem .9rem .35rem .75rem;
   width: 1rem;
   display: flex;
   align-items: center;
@@ -107,52 +108,94 @@ li a, .navbar-name a {
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  padding: .35rem;
+  padding: 0rem .9rem .35rem;
   font-weight: 900;
   font-size: 1.2rem;
 }
 
 .news-title {
   text-align: center;
-  border-bottom: 2px solid red;
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-bottom: .5rem;
 }
 
 .news-summary {
-  margin-top: .5rem;
+  border-top: .1rem solid red;
+  border-bottom: .1rem solid red;
+  font-size: .85rem;
+  padding: .5rem;
   text-align: center;
 }
+
+/* hr {
+  border: .1rem solid red;
+  margin: auto;
+  width: 75%;
+} */
 
 .news-source {
   display: flex;
   align-items: center;
   font-size: .8rem;
-  margin-right: auto
+  margin-right: auto;
+  padding: .5rem 1rem 0rem;
 }
 
 .news-date {
   display: flex;
   align-items: center;
+  font-size: .8rem;
   justify-content: center;
   margin-left: auto;
-  padding: .35rem;
-  font-size: .8rem;
+  padding: .5rem 1rem 0rem;
 }
 
 .news-footer {
-  margin-top: .75rem;
+  margin-bottom: -.5rem;      /* Look into if having negative value is okay or not. Likely not.
+                                 Find where to minimalize the padding/margin below source + date. */
 }
 
+.page-button {
+  display: flex;
+  justify-content: center;
+}
+
+.page-change {
+  background: none;
+	/* color: inherit; */
+  color: rgb(7, 176, 255);
+	border: none;
+	padding: 0 .5rem;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  margin: 0rem;
+}
+
+
+
+
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
 /* *****************Graph Page***************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+
 .main-content {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
   /* height: 80vh; */
   flex-direction: column;
   padding-top: 5px;
-  margin: auto;
+  margin: 0rem auto;                /* delete 0 rem to make graph + text stay in middle of page*/
   /* border: 2px solid black; */
 }
 
@@ -171,7 +214,7 @@ li a, .navbar-name a {
 
 .chart {
   background-color: silver;
-  margin: auto;
+  margin: 0rem auto;                /* delete 0 rem to make graph stay in middle of page*/
   margin-bottom: 50px;
 }
 
