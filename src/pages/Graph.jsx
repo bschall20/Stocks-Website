@@ -149,7 +149,7 @@ function Graph() {
 
     {
       stockData ?
-        stockData.historical ? stockData.historical.map((dataObj, index) => {         // See if daily was selected then display.
+        stockData.historical ? stockData.historical.map((dataObj, index) => {          // See if daily was selected then display.
           dataArr.unshift({                                                            // Is slow due to so many candles.
             x: new Date(`${dataObj.date}`),                                            // NEED TO FIX NESTED LOOP HERE
             y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
@@ -171,6 +171,7 @@ function Graph() {
         timeframe={timeframe}
         data={dataArr}
       />
+      {/* <p className="chart-p">*data pulled from</p> */}
     </div>
 
   </div >

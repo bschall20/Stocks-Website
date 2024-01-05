@@ -39,21 +39,24 @@ import News from "./pages/News.jsx";
 // import ChartRender from "./components/ChartGraph.jsx";
 
 import Footer from "./components/Footer.jsx";
- 
+
 function App() {
-    return (
+    return (<div className="app">
         <Router>
             <Navbar />
-            <Aside />
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/graph" element={<Graph />} />
-                <Route path="/news" element={<News />} />
-                {/* <Route path="/chart" element={<ChartRender />} /> */}
-            </Routes>
+            <div className="app-content">
+                <Aside />
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route path="/graph" element={<Graph />} />
+                    <Route path="/news" element={<News />} />
+                    {/* <Route path="/chart" element={<ChartRender />} /> */}
+                </Routes>
+            </div>
             <Footer />
         </Router>
+    </div>
     );
 }
- 
+
 export default App;
