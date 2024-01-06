@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import returnDate from "../components/getDate";
+import returnDate from "../JS Files/getDate";
 import StockChart from "../components/ChartGraph";
 
 const stockKey = process.env.REACT_APP_FMP_API_KEY;
@@ -36,10 +36,9 @@ function Graph() {
   function HandleSubmit(e) {
     let newTime = e.target[1].value;
     let newSymbol = e.target[0].value;
-    setTimeframe(newTime);      //TIMEFRAME
+    setTimeframe(newTime);        //TIMEFRAME
     setSymbol(newSymbol);         //STOCK
     setDateRange(returnDate(e.target[1].value));
-    //setUrl(`https://financialmodelingprep.com/api/v3/historical-chart/${newTime}/${newSymbol}?${returnDate(newTime)}&apikey=${stockKey}`);
     if (newTime === "daily") {
       setUrl(`https://financialmodelingprep.com/api/v3/historical-price-full/${newSymbol}?apikey=${stockKey}`);
     }
@@ -87,16 +86,8 @@ function Graph() {
         <option value="daily">Daily</option>
         {/* <option value="weekly">Weekly</option> */}
       </select>
-      <button type="submit" className="form-submit">Go</button>
+      <button type="submit" className="form-submit">Submit</button>
     </form>
-
-    {/* {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
-    {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
-    {console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')}
-    {console.log(`Rendered in HTML Timeframe: ${timeframe}`)}
-    {console.log(`Rendered in HTML Stock: ${symbol}`)}
-    {console.log(`Rendered in HTML Date Range: ${dateRange}`)}
-    {console.log(`Rendered in HTML API Data Link: ${url}`)} */}
 
 
     <br />

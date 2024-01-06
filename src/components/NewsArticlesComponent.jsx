@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import returnDate from "../JS Files/getDate";
 
 const stockKey = process.env.REACT_APP_FINNHUB_API_KEY;
 
-function Aside() {
-    //API TO USE FOR NEWS??? : https://www.marketaux.com/documentation
+function NewsArticlesComponent() {
+    //API TO USE FOR NEWS??? : https://finnhub.io/
     const [errorMessage, setErrorMessage] = useState("")
     const [symbol, setSymbol] = useState(`AAPL`);
-    const [url, setUrl] = useState(`https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=2023-01-04&to=2024-01-04&token=${stockKey}`);
-    //https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2023-01-04&to=2024-01-04&token=cmbkbl9r01qqi7tve73gcmbkbl9r01qqi7tve740
+    const [url, setUrl] = useState(`https://finnhub.io/api/v1/company-news?symbol=${symbol}&${returnDate('5days')}&token=${stockKey}`);
+    //https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2023-01-04&to=2024-01-04&token={stockKey}
     const [newsData, setNewsData] = useState();
     const [pageNumber, setPageNumber] = useState(1);
-    let i = 0;
-    // const [newsDataLength, setNewsDataLength] = useState(newsData.length);
-    // let dataArr = [];
-
 
 
     useEffect(() => {
         axios.get(url)
             .then((res) => {
                 setNewsData(res.data);
-                //console.log(res.data.length)
             })
             .catch(error => {
                 if (error.message === "Request failed with status code 429") {
-                    setErrorMessage("Too many requests sent to Financial Modeling Prep (251/251). Please wait until tomorrow to request more.")
+                    setErrorMessage("Too many requests sent to Finhub. Please wait to request more.")
                 }
                 return error;
             })
@@ -35,7 +31,8 @@ function Aside() {
     function HandleSubmit(e) {
         let newSymbol = e.target[0].value;
         setSymbol(newSymbol);         //STOCK
-        setUrl(`https://finnhub.io/api/v1/company-news?symbol=${newSymbol}&from=2023-01-04&to=2024-01-04&token=${stockKey}`);
+        setPageNumber(1);
+        setUrl(`https://finnhub.io/api/v1/company-news?symbol=${newSymbol}&${returnDate('5days')}&token=${stockKey}`);
         e.preventDefault();
     }
 
@@ -48,21 +45,21 @@ function Aside() {
         return (`${month} ${day}, ${year}`)
     }
 
-    function newsCount(summary, link) {
+    function newsCount(summary) {
         if (summary.length >= 95) {
             return (`${summary.substring(0, 94)}. . .`)
         }
         else { return (summary) }
     }
 
-    function decreasePage(){
-        if (pageNumber > 1){
+    function decreasePage() {
+        if (pageNumber > 1) {
             setPageNumber(pageNumber - 1)
         }
     }
 
-    function increasePage(){
-        if (pageNumber < newsData.length/5){
+    function increasePage() {
+        if (pageNumber < newsData.length / 5) {
             setPageNumber(pageNumber + 1)
         }
     }
@@ -92,7 +89,7 @@ function Aside() {
                 <option value="SPY">SPY (S&P 500)</option>
                 <option value="TSLA">TSLA (Tesla)</option>
             </select>
-            <button type="submit" className="form-submit">Go</button>
+            <button type="submit" className="form-submit">Submit</button>
         </form>
 
 
@@ -110,7 +107,7 @@ function Aside() {
         <div className="news-data">
             {
                 newsData ? newsData.map((dataObj, index) => {
-                    if (index <= (pageNumber*4) && index >= (pageNumber*4-4)) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
+                    if (index <= (pageNumber * 5 - 1) && index >= (pageNumber * 5 - 5)) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
                         let date = convertUnix(dataObj.datetime);
                         let summary = newsCount(dataObj.summary, dataObj.url);
                         return (
@@ -120,15 +117,11 @@ function Aside() {
                                     <span className="news-company">{dataObj.related}</span>
                                 </div>
                                 <h2 className="news-title">{dataObj.headline}</h2>
-                                {/* <hr/> */}
                                 <p className="news-summary">{summary}</p>
-                                {/* <hr/> */}
                                 <div className="news-footer">
                                     <span className="news-source">Source: <a href={dataObj.url} target="_blank" rel="noreferrer">{dataObj.source}</a></span>
                                     <span className="news-date">Date: {date}</span>
                                 </div>
-                                {/* <p className="news-source">Source: {dataObj.source}</p>
-                                <p className="news-url">URL: {dataObj.url}</p> */}
                                 <br />
                             </div>
                         );
@@ -142,19 +135,13 @@ function Aside() {
                 newsData ?
                     <span className="page-button">
                         <button className="page-change" onClick={decreasePage}>&lt;</button>
-                        Page {pageNumber} of {newsData.length / 5}
+                        Page {pageNumber} of {Math.ceil(newsData.length / 5)}
                         <button className="page-change" onClick={increasePage}>&gt;</button>
                     </span>
                     : null
             }
         </div>
-
-        {
-            console.log(newsData)
-        }
-
-
     </div>
 }
 
-export default Aside;
+export default NewsArticlesComponent;

@@ -28,21 +28,15 @@ function formatDate(date) {
     return (year + "-" + month + "-" + day)
 }
 
-//**********************need to pull in from time filter with graph.ejs */
 
-//call this function but with returnDate(timeframe) and let that choose the days.
 function returnDate(timeframe) {
     var days = 0;
-    //Need to make variable equal to what time is selected on graph.ejs
     if (timeframe === "1min") {
         days = 2;           // 2 days, instead of 1, because if checked between 0000 and 0929, chart is empty.
                             // Could solve with editing time to check if past 0930 but then chart will have very little. 
                             // Leaving at 2 days.
     }
-    else if (timeframe === "5min") {
-        days = 5;
-    }
-    else if (timeframe === "15min") {
+    else if (timeframe === "5min" || timeframe === "15min" || timeframe === "5days") {
         days = 5;
     }
     else if (timeframe === "30min") {
@@ -51,26 +45,17 @@ function returnDate(timeframe) {
     else if (timeframe === "1hour") {
         days = 20;
     }
-    else if (timeframe === "4hour") {
-        days = 180;
+    else {
+        days = 180;         //(timeframe === "4hour")
     }
-    // else if (timeframe === "daily") {
-    //     days = 5;
-    // }
-    // else if (timeframe === "weekly") {
-    //     days = 5;
-    // }
 
     const datesArr = business_day_from_date(days, new Date()).map(
         function (date) { return formatDate(date); }
     )
     const todayDate = days - 1;
     return (`from=${datesArr[0]}&to=${datesArr[todayDate]}`)        //shows oldest date on [0]... prefered for apex?
-    //return (`from=${datesArr[todayDate]}&to=${datesArr[0]}`)
 }
 
-// Output for Financial Modeling Prep Intraday Chart
-// See: https://site.financialmodelingprep.com/developer/docs#chart-intraday
-//console.log(returnDate(days));
+
 
 export default returnDate;

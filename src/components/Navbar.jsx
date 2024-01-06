@@ -24,7 +24,7 @@ const Navbar = () => {
         //         </NavMenu>
         //     </Nav>
         // </header>
-        <header>
+        <div className="nav-box">
             <h1 className="navbar-name">
                 <NavLink className="selected-nav" to="/">
                     Name + Logo
@@ -55,7 +55,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-        </header>
+        </div>
     );
 };
 
