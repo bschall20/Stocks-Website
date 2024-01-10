@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import axios from "axios";
 
 const stockKey = process.env.REACT_APP_FINNHUB_API_KEY;
 
 function HeaderStockComponent(props) {
-    let url = `https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${stockKey}`;
+    //let url = `https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${stockKey}`;
+    const [url, setURL] = useState(`https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${stockKey}`)
     const [data, setData] = useState();
+    const [stock, setStock] = useState(props.symbol);
     let stockPercent;
     let headerStockPercent;
 
+
     useEffect(() => {
+        //setURL(`https://finnhub.io/api/v1/quote?symbol=${stock}&token=${stockKey}`)
         axios.get(url)
             .then((res) => {
                 setData(res.data);
@@ -20,6 +25,11 @@ function HeaderStockComponent(props) {
             })
     }, [url]);
 
+    function changeStock(e) {
+        setStock(e.target.value);
+        setURL(`https://finnhub.io/api/v1/quote?symbol=${e.target.value}&token=${stockKey}`);
+    }
+
     // Get stock percent
     if (data){
         stockPercent = String(data.dp).charAt(0);
@@ -28,6 +38,7 @@ function HeaderStockComponent(props) {
     // Return Red if stock is negative return
     if (stockPercent === '-'){
         headerStockPercent = <p className="header-stock-percent stock-neg">
+        <span style={{fontSize: '1.5rem'}}><FaCaretDown /></span>
         {data ? Math.round((data.dp + Number.EPSILON) * 100) / 100 : <p>N/A</p>}% 
         <span className="header-stock-change">
         ({data ? data.d : <p>N/A</p>})
@@ -37,6 +48,7 @@ function HeaderStockComponent(props) {
     // Return Green if stock is positive return
     else {
         headerStockPercent = <p className="header-stock-percent stock-pos">
+        <span style={{fontSize: '1.5rem'}}><FaCaretUp /></span>
         {data ? Math.round((data.dp + Number.EPSILON) * 100) / 100 : <p>N/A</p>}% 
         <span className="header-stock-change">
         ({data ? data.d : <p>N/A</p>})
@@ -47,10 +59,11 @@ function HeaderStockComponent(props) {
 
     return <div className="header-stock-container">
         <div className="header-info">
-            <span className="header-symbol">{props.symbol}</span>
+            <input type="text" className="header-symbol" value={stock} onChange={changeStock} />
             <span className="header-close">{data ? data.c : <p>N/A</p>}</span>
         </div>
-        {headerStockPercent}
+        <span>{headerStockPercent ? headerStockPercent : <p>N/A</p>}</span>
+        {/* {headerStockPercent} */}
     </div>
 }
 

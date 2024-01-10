@@ -46,8 +46,8 @@ function NewsArticlesComponent() {
     }
 
     function newsCount(summary) {
-        if (summary.length >= 95) {
-            return (`${summary.substring(0, 94)}. . .`)
+        if (summary.length >= 85) {
+            return (`${summary.substring(0, 84)}. . .`)
         }
         else { return (summary) }
     }
@@ -107,25 +107,25 @@ function NewsArticlesComponent() {
         <div className="news-data">
             {
                 newsData ? newsData.map((dataObj, index) => {
+                    let output;
                     if (index <= (pageNumber * 5 - 1) && index >= (pageNumber * 5 - 5)) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
                         let date = convertUnix(dataObj.datetime);
                         let summary = newsCount(dataObj.summary, dataObj.url);
-                        return (
-                            <div className="news-card" key={index}>
-                                <div className="news-header">
-                                    <span className="news-number">{index + 1} </span>
-                                    <span className="news-company">{dataObj.related}</span>
-                                </div>
-                                <h2 className="news-title">{dataObj.headline}</h2>
-                                <p className="news-summary">{summary}</p>
-                                <div className="news-footer">
-                                    <span className="news-source">Source: <a href={dataObj.url} target="_blank" rel="noreferrer">{dataObj.source}</a></span>
-                                    <span className="news-date">Date: {date}</span>
-                                </div>
-                                <br />
+                        output = <div className="news-card" key={index}>                               
+                            <div className="news-header">
+                                <span className="news-number">{index + 1} </span>
+                                <span className="news-company">{dataObj.related}</span>
                             </div>
-                        );
-                    }
+                            <h2 className="news-title">{dataObj.headline}</h2>
+                            <p className="news-summary">{summary}</p>
+                            <div className="news-footer">
+                                <span className="news-source">Source: <a href={dataObj.url} target="_blank" rel="noreferrer">{dataObj.source}</a></span>
+                                <span className="news-date">Date: {date}</span>
+                            </div>
+                            <br />
+                        </div>
+
+                    } return output;
                 }) : <div className="error-API">
                     <p>{errorMessage}</p>
                 </div>

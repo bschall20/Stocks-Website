@@ -1,5 +1,6 @@
 import React from "react";
 // import { Nav, NavLink, NavMenu } from "./NavbarElements";
+import { TimeComponent, MarketOpen } from "./MarketTimeComponent";
 import { NavLink } from "react-router-dom";
 import "../index.css";
 
@@ -27,7 +28,8 @@ const Navbar = () => {
         <div className="nav-box">
             <h1 className="navbar-name">
                 <NavLink className="selected-nav" to="/">
-                    Name + Logo
+                    <TimeComponent />
+                    <MarketOpen />
                 </NavLink>
             </h1>
             <nav>
