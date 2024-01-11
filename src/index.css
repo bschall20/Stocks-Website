@@ -25,7 +25,11 @@ header {
   flex-direction: row;
 }
 
-.header-stock-container{
+h1 {
+  color: white;
+}
+
+.header-stock-container, .site-title{
   display: flex;
   justify-content: center;
   /* background-color: rgba(0,0,0,0.19); */
@@ -35,6 +39,13 @@ header {
   font-weight: 900;
   margin: 2rem 0rem;
   padding: .5rem 2.5rem;
+}
+
+.site-logo, h1{
+  display: flex;
+  margin: 0 .5rem;
+  height: 40px;
+  width: 40px;
 }
 
 .header-stock-container:last-child{
@@ -53,6 +64,7 @@ header {
 .header-symbol {
   all: unset;
   /* border-bottom: 2px solid rgb(88, 88, 88); */
+  color: rgb(240, 206, 156);
   font-size: 1.2rem;
   margin-right: auto;
   width: 4rem;
@@ -91,18 +103,29 @@ header {
 .nav-box {
   /* background-color: rgb(228, 228, 228); */
   background-color: silver;
-  border: .25rem solid #22b14c;
+  border: .25rem solid rgb(27, 27, 27);
+  border-left: none;
+  /* border-right: none; */
   border-top: none;
   /* rgb(27, 27, 27) */
   display: flex;
   flex-direction: row;
-  padding: 3rem 0rem 3rem 1.5rem;
+  /* padding: 1.2rem 0rem 1.2rem 1.5rem; */
 }
 
 nav {
   align-self: center;
   margin-left: auto;
   padding-right: 5rem;
+}
+
+.navbar-time {
+  /* display: flex;
+  flex-direction: column; */
+  border-right: .15rem solid rgb(27, 27, 27);
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 1rem 2rem;
 }
 
 .app {
@@ -127,7 +150,7 @@ nav {
   padding-left: 5rem;
 }
 
-li a, .navbar-name a {
+li a, .navbar-time a, a{
   color: black;
   text-decoration: none;
 }
@@ -160,12 +183,26 @@ li a, .navbar-name a {
 /* ******************************************** */
 /* ******************************************** */
 /* ******************************************** */
+.news-section-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 1rem;
+}
+
+.news-select {
+  border: 2px solid black;
+  color: black;
+  margin: 1rem .2rem 0rem;
+}
+
 .news-bar {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  background-color: rgb(20, 51, 98);
   /* border-right: .5rem solid rgb(228, 228, 228); */
-  border-right: .5rem solid silver;
+  border-right: .5rem solid rgb(27, 27, 27);
   /* border-bottom: .5rem solid rgb(228, 228, 228); */
   /* height: 80vh; */
   padding-top: 5px;
@@ -181,7 +218,8 @@ li a, .navbar-name a {
 }
 
 .form-submit:hover {
-  box-shadow: 0 .1rem .5rem 0 #22b14c, 0 17px 50px 0 rgba(0,0,0,0.19);
+  /* box-shadow: 0 .1rem .5rem 0 #22b14c, 0 17px 50px 0 rgba(0,0,0,0.19); */
+  box-shadow: 0 .1rem .5rem 0 #000000, 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .news-data {
@@ -191,7 +229,9 @@ li a, .navbar-name a {
 }
 
 .news-card {
-  border: .4rem solid rgba(0, 110, 255, 0.6);
+  background-color: white;
+  /* border: .4rem solid rgba(0, 110, 255, 0.6); */
+  border: .3em solid rgb(240, 206, 156);
   border-radius: 1.2rem;
   padding: .25rem 0rem 0rem;
   margin: 1rem 0rem 2rem;
@@ -315,15 +355,40 @@ li a, .navbar-name a {
   /* height: 80vh; */
   flex-direction: column;
   padding-top: 5px;
-  margin: 0rem auto;                /* delete 0 rem to make graph + text stay in middle of page*/
-  width: 100%;                      /* change if you want to make graph and all above text centered... or edit flexbox on this item.*/
+  margin: auto;                /* delete 0 rem to make graph + text stay in middle of page*/
+  /* width: 100%;                      change if you want to make graph and all above text centered... or edit flexbox on this item. */
   /* border: 2px solid black; */
 }
 
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: auto; */
+  /* flex-grow: 1; */
+  /* width: 100%; */
+}
+
+.page-not-found-img {
+  position: relative;
+   width: 100%;
+  /* flex-grow: 1; */
+}
+
+
+.page-not-found-msg {
+  position: absolute;
+  color: white;
+  font-size: 5rem;
+  -webkit-text-stroke-width: .1rem;
+  -webkit-text-stroke-color: black;
+}
+
 .stock-select, .time-select {
-  border: 2px solid green;
-  color: green;
-  margin: 0rem .2rem;
+  border: 2px solid black;
+  color: black;
+  margin: 2rem .2rem 0rem;
 }
 
 .error-API{
@@ -335,10 +400,13 @@ li a, .navbar-name a {
 }
 
 .chart {
-  background-color: silver;
-  margin: 0rem auto;                /* delete 0 rem to make graph stay in middle of page*/
+  /* background-color: rgb(20, 51, 98); */
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin: 2rem auto;                /* delete 0 rem to make graph stay in middle of page*/
   margin-bottom: 50px;
 }
+
 
 /* .chart-p {
   display: flex;
@@ -360,14 +428,51 @@ li a, .navbar-name a {
 /* ******************************************** */
 
 footer {
-  background-color: silver;
+  background-color: rgb(27, 27, 27);
+  color: white;
   margin: auto;
-  padding: 3rem 0rem;
+  padding: 2.5rem 0rem;
   text-align: center;
   width: 100%;
 }
 
+.contacts-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0rem auto 1.75rem;
+  width: 80%;
+}
 
+.footer-icon-box {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.75rem;
+}
+
+.footer-icon-box a {
+  color: white;
+}
+
+.footer-link {
+  color: white;
+}
+
+.footer-icon {
+  padding: 0 .75rem;
+}
+
+.copyright-box {
+  border-top: .1rem solid rgb(88, 88, 88);
+  margin: auto;
+  padding-top: 1.75rem;
+  width: 80%;
+}
+
+.copyright-logo {
+  font-size: .8rem;
+}
 
 
 

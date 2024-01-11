@@ -1,5 +1,7 @@
 import React from "react";
 import HeaderStockComponent from "./HeaderStockComponent";
+import stockHQLogo from '../images/stockHQLogo.png'
+import { NavLink } from "react-router-dom";
 
 
 function Header() {
@@ -9,8 +11,10 @@ function Header() {
 
         {/* <TimeComponent /> */}
 
-        <div className="header-stock-container">
-            <h1 className="">StockHub</h1>
+        <div className="site-title">
+            <NavLink to="/">
+                <h1>StockHQ <img src={stockHQLogo} className="site-logo"/></h1>
+            </NavLink>
         </div>
         <HeaderStockComponent symbol="AAPL" />
         <HeaderStockComponent symbol="AMZN" />

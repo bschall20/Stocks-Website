@@ -7,7 +7,7 @@ const stockKey = process.env.REACT_APP_FINNHUB_API_KEY;
 function NewsArticlesComponent() {
     //API TO USE FOR NEWS??? : https://finnhub.io/
     const [errorMessage, setErrorMessage] = useState("")
-    const [symbol, setSymbol] = useState(`AAPL`);
+    const [symbol, setSymbol] = useState(`SPY`);
     const [url, setUrl] = useState(`https://finnhub.io/api/v1/company-news?symbol=${symbol}&${returnDate('5days')}&token=${stockKey}`);
     //https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2023-01-04&to=2024-01-04&token={stockKey}
     const [newsData, setNewsData] = useState();
@@ -29,7 +29,7 @@ function NewsArticlesComponent() {
 
 
     function HandleSubmit(e) {
-        let newSymbol = e.target[0].value;
+        let newSymbol = e.target.value;
         setSymbol(newSymbol);         //STOCK
         setPageNumber(1);
         setUrl(`https://finnhub.io/api/v1/company-news?symbol=${newSymbol}&${returnDate('5days')}&token=${stockKey}`);
@@ -65,8 +65,9 @@ function NewsArticlesComponent() {
     }
 
     return <div className="news-bar">
-        <form action="/graph" className="stock-form" method="" onSubmit={HandleSubmit}>
-            <select name="symbol" className="stock-select" defaultValue={"SPY"}>
+            <h2 className='news-section-title'>NEWS</h2>
+        {/* <form action="/news" className="stock-form" method="" onChange={HandleSubmit}> */}
+            <select name="symbol" className="news-select" defaultValue={"SPY"} onChange={HandleSubmit}>
                 {/* <option value="Select">Select a Stock</option> */}
                 <option value="AAPL">AAPL (Apple)</option>
                 <option value="AMD">AMD (Advanced Micro Devices)</option>
@@ -89,8 +90,8 @@ function NewsArticlesComponent() {
                 <option value="SPY">SPY (S&P 500)</option>
                 <option value="TSLA">TSLA (Tesla)</option>
             </select>
-            <button type="submit" className="form-submit">Submit</button>
-        </form>
+            {/* <button type="submit" className="form-submit">Submit</button> */}
+        {/* </form> */}
 
 
         {/* {
@@ -108,7 +109,7 @@ function NewsArticlesComponent() {
             {
                 newsData ? newsData.map((dataObj, index) => {
                     let output;
-                    if (index <= (pageNumber * 5 - 1) && index >= (pageNumber * 5 - 5)) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
+                    if (index <= (pageNumber * 4 - 1) && index >= (pageNumber * 4 - 4)) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
                         let date = convertUnix(dataObj.datetime);
                         let summary = newsCount(dataObj.summary, dataObj.url);
                         output = <div className="news-card" key={index}>                               
@@ -135,7 +136,7 @@ function NewsArticlesComponent() {
                 newsData ?
                     <span className="page-button">
                         <button className="page-change" onClick={decreasePage}>&lt;</button>
-                        Page {pageNumber} of {Math.ceil(newsData.length / 5)}
+                        Page {pageNumber} of {Math.ceil(newsData.length / 4)}
                         <button className="page-change" onClick={increasePage}>&gt;</button>
                     </span>
                     : null
