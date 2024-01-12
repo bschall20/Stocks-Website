@@ -4,7 +4,7 @@ import returnDate from "../JS Files/getDate";
 
 const stockKey = process.env.REACT_APP_FINNHUB_API_KEY;
 
-function NewsArticlesComponent() {
+function NewsArticles() {
     //API TO USE FOR NEWS??? : https://finnhub.io/
     const [errorMessage, setErrorMessage] = useState("")
     const [symbol, setSymbol] = useState(`SPY`);
@@ -145,4 +145,4 @@ function NewsArticlesComponent() {
     </div>
 }
 
-export default NewsArticlesComponent;
+export default NewsArticles;

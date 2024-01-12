@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import getDate from '../JS Files/getDate';
 
 
-function TimeComponent() {
+function Time() {
 
 
     const [time, setTime] = useState(new Date());
@@ -27,10 +27,10 @@ function TimeComponent() {
 }
 
 
-// export default TimeComponent;
+
 function MarketOpen(){
     const [market, setMarket] = useState('CLOSED')
-    let timeNum = TimeComponent();
+    let timeNum = Time();
     let timeStr = timeNum.toString()
     let hoursStr = timeStr.slice(0, 2);
     let minutesStr = timeStr.slice(3, 5);
@@ -63,4 +63,4 @@ function MarketOpen(){
 }
 
 
-export {TimeComponent, MarketOpen};
+export {Time, MarketOpen};

@@ -55,7 +55,6 @@ function Footer() {
 
         <div className='copyright-box'>
             <p><FaRegCopyright className='copyright-logo' /> Copyright {getDate(1).slice(19, 23)}. All rights reserved.</p>
-            {/* <p>All right reserved.</p> */}
         </div>
 
 

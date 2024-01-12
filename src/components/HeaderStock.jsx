@@ -4,7 +4,7 @@ import axios from "axios";
 
 const stockKey = process.env.REACT_APP_FINNHUB_API_KEY;
 
-function HeaderStockComponent(props) {
+function HeaderStock(props) {
     //let url = `https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${stockKey}`;
     const [url, setURL] = useState(`https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${stockKey}`)
     const [data, setData] = useState();
@@ -67,4 +67,4 @@ function HeaderStockComponent(props) {
     </div>
 }
 
-export default HeaderStockComponent;
+export default HeaderStock;

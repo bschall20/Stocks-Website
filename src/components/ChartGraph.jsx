@@ -1,5 +1,4 @@
 // REFERENCE: https://apexcharts.com/docs/creating-first-javascript-chart/#
-// import ApexCharts from 'apexcharts'
 import React from "react";
 import Chart from "react-apexcharts";
 import dayjs from "dayjs";

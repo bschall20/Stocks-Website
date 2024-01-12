@@ -365,6 +365,78 @@ a {
 }
 
 
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* **************** Home Page ***************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+
+
+.home-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4rem auto;
+  width: 80%;
+}
+
+.home-page-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.home-welcome {
+  line-height: 1.75rem;
+  margin: 1rem 0 3rem;
+  text-align: center;
+  width: 75%;
+}
+
+.home-link {
+  text-decoration: underline;
+}
+
+.home-box {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
+.home-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home-title{
+  text-align: center;
+  width: 400px;
+}
+
+.home-description {
+  line-height: 1.75rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.home-box:last-child {
+  margin-bottom: 0rem;
+}
+
+.home-img, .home-info {
+  height: 350px;
+  width: 500px;
+  
+}
 
 
 /* ******************************************** */
@@ -441,21 +513,21 @@ a {
 }
 
 .terms-page-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
 }
 
-.terms-section {
+.terms-section, .home-section {
   width: 100%;
 }
 
-.term-word {
+.term-word, .home-title {
   font-size: 1.75rem;
   padding-bottom: .25rem;
 }
 
-.term-definition {
+.term-definition, .home-description, .home-welcome {
   font-size: 1.2rem;
 }
 

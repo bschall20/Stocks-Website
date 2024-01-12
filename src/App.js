@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Header from "./components/Header.jsx"
-import NewsArticlesComponent from "./components/NewsArticlesComponent.jsx";
+import NewsArticles from "./components/NewsArticles.jsx";
 import Home from "./pages/Home.jsx";
 import Graph from "./pages/Graph.jsx";
 import Terms from "./pages/Terms.jsx";
@@ -41,7 +41,7 @@ function App() {
         <Router>
             <Header />
             <div className='app-main'>
-                <NewsArticlesComponent />
+                <NewsArticles />
                 <div className='app-content'>
                     <Navbar />
                     <Routes>
