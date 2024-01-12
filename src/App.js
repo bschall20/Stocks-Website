@@ -7,10 +7,11 @@ import {
 import Navbar from "./components/Navbar.jsx";
 import Header from "./components/Header.jsx"
 import NewsArticlesComponent from "./components/NewsArticlesComponent.jsx";
-// import Home from "./pages/Home.jsx";
 import Home from "./pages/Home.jsx";
+import Graph from "./pages/Graph.jsx";
+import Terms from "./pages/Terms.jsx";
 import NotFound from "./pages/NotFound.jsx";
-// import News from "./pages/News.jsx";
+
 
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop";
@@ -45,6 +46,8 @@ function App() {
                     <Navbar />
                     <Routes>
                         <Route exact path='/' element={<Home />} />
+                        <Route exact path='/graph' element={<Graph />} />
+                        <Route exact path='/terms' element={<Terms />} />
                         <Route path='*' element={<NotFound />} />
                     </Routes>
                 </div>

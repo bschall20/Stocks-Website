@@ -13,7 +13,7 @@ function Header() {
 
         <div className="site-title">
             <NavLink to="/">
-                <h1>StockHQ <img src={stockHQLogo} className="site-logo"/></h1>
+                <h1>StockHQ <img src={stockHQLogo} className="site-logo" alt='StockHQ logo'/></h1>
             </NavLink>
         </div>
         <HeaderStockComponent symbol="AAPL" />

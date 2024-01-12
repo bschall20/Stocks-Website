@@ -71,8 +71,8 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li className="news">
-                    <NavLink to="/news" className={({ isActive }) => (isActive ? 'selected-nav' : null)}>
-                        News & Information
+                    <NavLink to="/terms" className={({ isActive }) => (isActive ? 'selected-nav' : null)}>
+                        Stock Terms
                     </NavLink>
                 </li>
             </ul>

@@ -117,7 +117,7 @@ function NewsArticlesComponent() {
                                 <span className="news-number">{index + 1} </span>
                                 <span className="news-company">{dataObj.related}</span>
                             </div>
-                            <h2 className="news-title">{dataObj.headline}</h2>
+                            <h3 className="news-title">{dataObj.headline}</h3>
                             <p className="news-summary">{summary}</p>
                             <div className="news-footer">
                                 <span className="news-source">Source: <a href={dataObj.url} target="_blank" rel="noreferrer">{dataObj.source}</a></span>

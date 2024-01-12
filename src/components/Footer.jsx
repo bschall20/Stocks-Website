@@ -1,6 +1,6 @@
 import React from "react";
-import { FaRegCopyright, FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
-import { AiFillTwitterCircle } from "react-icons/ai";
+import { FaRegCopyright, FaLinkedin, FaGithub } from "react-icons/fa";    // , FaFacebook,
+// import { AiFillTwitterCircle } from "react-icons/ai";
 import getDate from '../JS Files/getDate'
 import stockHQLogo from '../images/stockHQLogo.png'
 import { NavLink } from "react-router-dom";
@@ -10,25 +10,25 @@ function Footer() {
         <div className='contacts-box'>
             <div>
                 <NavLink to="/">
-                    <img src={stockHQLogo} className="site-logo" />
+                    <img src={stockHQLogo} className="site-logo" alt='StockHQ logo'/>
                 </NavLink>
             </div>
 
             <div className='footer-nav'>
                 <ul className="navbar-list">
-                    <li className="home">
+                    <li>
                         <NavLink to="/" className='footer-link'>
                             Home
                         </NavLink>
                     </li>
-                    <li className="graph">
+                    <li>
                         <NavLink to="/graph" className='footer-link'>
                             Stock Graph
                         </NavLink>
                     </li>
-                    <li className="news">
-                        <NavLink to="/news" className='footer-link'>
-                            Stock Information
+                    <li>
+                        <NavLink to="/terms" className='footer-link'>
+                            Stock Terms
                         </NavLink>
                     </li>
                 </ul>

@@ -16,6 +16,7 @@
 /* ******************************************** */
 /* ******************************************** */
 
+
 header {
   background-color: rgb(27, 27, 27);
   color: white;
@@ -23,13 +24,20 @@ header {
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+
+  /* -webkit-box-shadow: 0 5px 15px 1px #000;
+  -moz-box-shadow: 0 5px 15px 1px #000;
+  box-shadow: 0 5px 15px 1px #000;
+  position: relative;
+  z-index: 10; */
 }
 
 h1 {
   color: white;
 }
 
-.header-stock-container, .site-title{
+.header-stock-container,
+.site-title {
   display: flex;
   justify-content: center;
   /* background-color: rgba(0,0,0,0.19); */
@@ -41,14 +49,15 @@ h1 {
   padding: .5rem 2.5rem;
 }
 
-.site-logo, h1{
+.site-logo,
+h1 {
   display: flex;
   margin: 0 .5rem;
   height: 40px;
   width: 40px;
 }
 
-.header-stock-container:last-child{
+.header-stock-container:last-child {
   border-right: none;
 }
 
@@ -75,11 +84,13 @@ h1 {
   margin-left: auto;
 }
 
-.stock-neg, .market-CLOSED {
+.stock-neg,
+.market-CLOSED {
   color: rgb(245, 77, 77);
 }
 
-.stock-pos, .market-OPEN {
+.stock-pos,
+.market-OPEN {
   color: rgb(91, 245, 77);
 }
 
@@ -100,8 +111,9 @@ h1 {
 /* ******************************************** */
 /* ******************************************** */
 
+
 .nav-box {
-  /* background-color: rgb(228, 228, 228); */
+  /* background-color: rgb(228, 228, 228); rgb(240, 206, 156)*/
   background-color: silver;
   border: .25rem solid rgb(27, 27, 27);
   border-left: none;
@@ -111,6 +123,12 @@ h1 {
   display: flex;
   flex-direction: row;
   /* padding: 1.2rem 0rem 1.2rem 1.5rem; */
+
+    -webkit-box-shadow: 0 2px 15px 1px #000;
+  -moz-box-shadow: 0 2px 15px 1px #000;
+  box-shadow: 0 2px 15px 1px #000;
+  position: relative;
+  z-index: 10;
 }
 
 nav {
@@ -139,6 +157,7 @@ nav {
 }
 
 .app-content {
+  background-image: url('./images/main-background.png');        /* from: https://pattern.monster/japanese-pattern-1/ */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -150,7 +169,9 @@ nav {
   padding-left: 5rem;
 }
 
-li a, .navbar-time a, a{
+li a,
+.navbar-time a,
+a {
   color: black;
   text-decoration: none;
 }
@@ -159,6 +180,7 @@ li a, .navbar-time a, a{
   text-decoration: underline;
   text-decoration-color: black;
 }
+
 
 /* ********************************************************************************************************************** */
 /* ********************************************************************************************************************** */
@@ -183,11 +205,32 @@ li a, .navbar-time a, a{
 /* ******************************************** */
 /* ******************************************** */
 /* ******************************************** */
+
+
+.news-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: rgb(20, 51, 98); */
+  background-image: url('./images/news-background.png');        /* from: https://pattern.monster/japanese-pattern-1/ */
+  /* border-right: .5rem solid rgb(228, 228, 228); */
+  border-right: .5rem solid rgb(27, 27, 27);
+  /* border-bottom: .5rem solid rgb(228, 228, 228); */
+  /* height: 80vh; */
+  padding-top: 5px;
+  width: 20vw;
+  flex-direction: column;
+
+}
+
 .news-section-title {
-  color: white;
+  /* color: white; */
+  color: rgb(240, 206, 156);
   font-size: 2rem;
   font-weight: 900;
   margin-top: 1rem;
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black; */
 }
 
 .news-select {
@@ -196,22 +239,7 @@ li a, .navbar-time a, a{
   margin: 1rem .2rem 0rem;
 }
 
-.news-bar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: rgb(20, 51, 98);
-  /* border-right: .5rem solid rgb(228, 228, 228); */
-  border-right: .5rem solid rgb(27, 27, 27);
-  /* border-bottom: .5rem solid rgb(228, 228, 228); */
-  /* height: 80vh; */
-  padding-top: 5px;
-  width: 20vw;
-  /* overflow: hidden; */
-  flex-direction: column;
-}
-
-.form-submit{
+.form-submit {
   border-radius: .2rem;
   cursor: pointer;
   padding: .15rem;
@@ -219,7 +247,7 @@ li a, .navbar-time a, a{
 
 .form-submit:hover {
   /* box-shadow: 0 .1rem .5rem 0 #22b14c, 0 17px 50px 0 rgba(0,0,0,0.19); */
-  box-shadow: 0 .1rem .5rem 0 #000000, 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 .1rem .5rem 0 #000000, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .news-data {
@@ -243,7 +271,8 @@ li a, .navbar-time a, a{
   cursor: pointer;
 }
 
-.news-header, .news-footer {
+.news-header,
+.news-footer {
   display: flex;
   flex-direction: row;
 }
@@ -312,24 +341,26 @@ li a, .navbar-time a, a{
 }
 
 .news-footer {
-  margin-bottom: -.5rem;      /* Look into if having negative value is okay or not. Likely not.
+  margin-bottom: -.5rem;
+  /* Look into if having negative value is okay or not. Likely not.
                                  Find where to minimalize the padding/margin below source + date. */
 }
 
 .page-button {
+  color: rgb(240, 206, 156);
   display: flex;
   justify-content: center;
 }
 
 .page-change {
   background: none;
-	/* color: inherit; */
+  /* color: inherit; */
   color: rgb(7, 176, 255);
-	border: none;
-	padding: 0 .5rem;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  border: none;
+  padding: 0 .5rem;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
   margin: 0rem;
 }
 
@@ -348,17 +379,109 @@ li a, .navbar-time a, a{
 /* ******************************************** */
 /* ******************************************** */
 
-.main-content {
+
+.graph-page {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   /* height: 80vh; */
   flex-direction: column;
   padding-top: 5px;
-  margin: auto;                /* delete 0 rem to make graph + text stay in middle of page*/
+  margin: auto;
+  
+  /* delete 0 rem to make graph + text stay in middle of page*/
   /* width: 100%;                      change if you want to make graph and all above text centered... or edit flexbox on this item. */
   /* border: 2px solid black; */
 }
+
+.stock-select,
+.time-select {
+  border: 2px solid black;
+  color: black;
+  margin: 2rem .2rem 0rem;
+}
+
+.error-API {
+  color: red;
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.chart {
+  /* background-color: rgb(20, 51, 98); */
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin: 2rem auto;
+  /* delete 0 rem to make graph stay in middle of page*/
+  margin-bottom: 50px;
+}
+
+
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* **************** Terms Page **************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+
+.terms-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4rem auto;
+  width: 80%;
+}
+
+.terms-page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.terms-section {
+  width: 100%;
+}
+
+.term-word {
+  font-size: 1.75rem;
+  padding-bottom: .25rem;
+}
+
+.term-definition {
+  font-size: 1.2rem;
+}
+
+.term-box {
+  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+  margin: 2rem 0 0;
+}
+
+.term-box:last-child {
+  border-bottom: none;
+}
+
+
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ************** Not Found Page ************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+/* ******************************************** */
+
 
 .page-not-found {
   display: flex;
@@ -372,7 +495,7 @@ li a, .navbar-time a, a{
 
 .page-not-found-img {
   position: relative;
-   width: 100%;
+  width: 100%;
   /* flex-grow: 1; */
 }
 
@@ -384,35 +507,6 @@ li a, .navbar-time a, a{
   -webkit-text-stroke-width: .1rem;
   -webkit-text-stroke-color: black;
 }
-
-.stock-select, .time-select {
-  border: 2px solid black;
-  color: black;
-  margin: 2rem .2rem 0rem;
-}
-
-.error-API{
-  color: red;
-  font-size: 1.1rem;
-  font-weight: 900;
-  margin: auto;
-  margin-bottom: 10px;
-}
-
-.chart {
-  /* background-color: rgb(20, 51, 98); */
-  background-color: rgb(255, 255, 255);
-  color: black;
-  margin: 2rem auto;                /* delete 0 rem to make graph stay in middle of page*/
-  margin-bottom: 50px;
-}
-
-
-/* .chart-p {
-  display: flex;
-  font-size: .75rem;
-  justify-content: end;
-} */
 
 
 /* ******************************************** */
@@ -426,6 +520,7 @@ li a, .navbar-time a, a{
 /* ******************************************** */
 /* ******************************************** */
 /* ******************************************** */
+
 
 footer {
   background-color: rgb(27, 27, 27);
@@ -465,6 +560,7 @@ footer {
 
 .copyright-box {
   border-top: .1rem solid rgb(88, 88, 88);
+  color: rgb(240, 206, 156);
   margin: auto;
   padding-top: 1.75rem;
   width: 80%;
@@ -473,8 +569,3 @@ footer {
 .copyright-logo {
   font-size: .8rem;
 }
-
-
-
-
-
