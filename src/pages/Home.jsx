@@ -21,7 +21,7 @@ function Home() {
 
                         if (index % 2 === 1) {
                             return (
-                                <div className='home-box'>
+                                <div className='home-box' key={index}>
                                     <div className='home-info'>
                                         <h3 className='home-title'>{info.title}</h3>
                                         <p className='home-description'>{info.description}</p>
@@ -34,7 +34,7 @@ function Home() {
                         }
                         else {
                             return (
-                                <div className='home-box'>
+                                <div className='home-box' key={index}>
                                     <div>
                                         <img src={info.image} alt={info.alt} className='home-img' />
                                     </div>

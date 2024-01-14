@@ -12,7 +12,7 @@ function HeaderStock(props) {
     let stockPercent;
     let headerStockPercent;
 
-
+    
     useEffect(() => {
         //setURL(`https://finnhub.io/api/v1/quote?symbol=${stock}&token=${stockKey}`)
         axios.get(url)
@@ -39,9 +39,9 @@ function HeaderStock(props) {
     if (stockPercent === '-'){
         headerStockPercent = <p className="header-stock-percent stock-neg">
         <span style={{fontSize: '1.5rem'}}><FaCaretDown /></span>
-        {data ? Math.round((data.dp + Number.EPSILON) * 100) / 100 : <p>N/A</p>}% 
+        {data ? Math.round((data.dp + Number.EPSILON) * 100) / 100 : 'N/A'}% 
         <span className="header-stock-change">
-        ({data ? data.d : <p>N/A</p>})
+        ({data ? data.d : 'N/A'})
         </span>
         </p>
     }
@@ -49,9 +49,9 @@ function HeaderStock(props) {
     else {
         headerStockPercent = <p className="header-stock-percent stock-pos">
         <span style={{fontSize: '1.5rem'}}><FaCaretUp /></span>
-        {data ? Math.round((data.dp + Number.EPSILON) * 100) / 100 : <p>N/A</p>}% 
+        {data ? Math.round((data.dp + Number.EPSILON) * 100) / 100 : 'N/A'}% 
         <span className="header-stock-change">
-        ({data ? data.d : <p>N/A</p>})
+        ({data ? data.d : 'N/A'})
         </span>
         </p>
     }
@@ -60,9 +60,9 @@ function HeaderStock(props) {
     return <div className="header-stock-container">
         <div className="header-info">
             <input type="text" className="header-symbol" value={stock} onChange={changeStock} />
-            <span className="header-close">{data ? data.c : <p>N/A</p>}</span>
+            <span className="header-close">{data ? data.c : 'N/A'}</span>
         </div>
-        <span>{headerStockPercent ? headerStockPercent : <p>N/A</p>}</span>
+        <span>{headerStockPercent ? headerStockPercent : 'N/A'}</span>
         {/* {headerStockPercent} */}
     </div>
 }
