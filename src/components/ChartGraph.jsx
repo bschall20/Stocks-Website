@@ -5,6 +5,21 @@ import dayjs from "dayjs";
 
 function StockChart(props) {
 
+  let height = 600;
+  let width = 1200;
+
+  if (window.matchMedia("(max-width: 800px)").matches) {
+    height = 500
+    width = 500
+  }
+  else if (window.matchMedia("(max-width: 1300px)").matches) {
+    height = 600
+    width = 600
+  }
+  else if (window.matchMedia("(max-width: 1500px)").matches) {
+    width = 1000
+  }
+
   let state = {
     series: [{
       data: props.data,
@@ -50,7 +65,7 @@ function StockChart(props) {
   }
   return (
     <div id="chart">
-      <Chart options={state.options} series={state.series} type="candlestick" height={600} width={1200} />
+      <Chart options={state.options} series={state.series} type="candlestick" height={height} width={width} />
     </div>);
 }
 

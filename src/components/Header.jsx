@@ -10,7 +10,10 @@ function Header() {
     return <header>
         <div className="site-title">
             <NavLink to="/">
-                <h1>StockHQ <img src={stockHQLogo} className="site-logo" alt='StockHQ logo'/></h1>
+                <h1>StockHQ</h1>
+            </NavLink>
+            <NavLink to="/">
+            <img src={stockHQLogo} className="site-logo" alt='StockHQ logo' />
             </NavLink>
         </div>
         <HeaderStock symbol="AAPL" />
@@ -18,8 +21,6 @@ function Header() {
         <HeaderStock symbol="MSFT" />
         <HeaderStock symbol="NVDA" />
         <HeaderStock symbol="SPY" />
-
-
     </header>
 }
 
