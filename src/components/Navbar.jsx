@@ -6,12 +6,10 @@ import "../index.css";
 
 const Navbar = () => {
 
-    function showNavbar() {
-        const navs = document.querySelectorAll('.navbar-list')
-        navs.forEach(nav => nav.classList.toggle('navbar-toggle-show'));
+    const [show, setShow] = useState(true);
 
-        const navbarIcon = document.querySelector('.navbar-link-toggle');
-        navbarIcon.classList.toggle('')
+    function showNavbar() {
+        setShow(!show);
     }
 
     const [active, setActive] = useState(false);
@@ -27,22 +25,25 @@ const Navbar = () => {
                 <Time />
                 <MarketOpen />
             </p>
-            <div className="navbar-link-toggle" onClick={showNavbar}>
-                <ToggleIcon active={active} handleChangeActive={handleChangeActive} />
+            <div className='navbar-menu'>
+                <div className="navbar-link-toggle" onClick={showNavbar}>
+                    <ToggleIcon active={active} handleChangeActive={handleChangeActive} />
+                </div>
+
+                <nav className={show ? 'navbar-list' : 'navbar-list-mini'}>
+                    <NavLink to="/" className={({ isActive }) => (isActive ? 'selected-nav nav-item' : 'nav-item')}>
+                        Home
+                    </NavLink>
+
+                    <NavLink to="/graph" className={({ isActive }) => (isActive ? 'selected-nav nav-item' : 'nav-item')}>
+                        Stock Graph
+                    </NavLink>
+
+                    <NavLink to="/terms" className={({ isActive }) => (isActive ? 'selected-nav nav-item' : 'nav-item')}>
+                        Stock Terms
+                    </NavLink>
+                </nav>
             </div>
-            <nav className="navbar-list">
-                <NavLink to="/" className={({ isActive }) => (isActive ? 'selected-nav nav-item' : 'nav-item')}>
-                    Home
-                </NavLink>
-
-                <NavLink to="/graph" className={({ isActive }) => (isActive ? 'selected-nav nav-item' : 'nav-item')}>
-                    Stock Graph
-                </NavLink>
-
-                <NavLink to="/terms" className={({ isActive }) => (isActive ? 'selected-nav nav-item' : 'nav-item')}>
-                    Stock Terms
-                </NavLink>
-            </nav>
         </div>
     );
 };

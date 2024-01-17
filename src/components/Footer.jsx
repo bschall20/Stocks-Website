@@ -14,7 +14,7 @@ function Footer() {
                 </NavLink>
             </div>
 
-            <div className='footer-nav navbar-list'>
+            <div className='footer-nav'>
                     <div>
                         <NavLink to="/" className='footer-link'>
                             Home
