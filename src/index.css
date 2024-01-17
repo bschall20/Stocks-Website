@@ -140,14 +140,30 @@ h1 {
   -webkit-box-shadow: 0 2px 15px 1px #000;
   -moz-box-shadow: 0 2px 15px 1px #000;
   box-shadow: 0 2px 15px 1px #000;
-  position: relative;
-  z-index: 10;
+  /* position: relative;
+  z-index: 10; */
 }
 
 nav {
   align-self: center;
   margin-left: auto;
   padding-right: 5rem;
+}
+
+.navbar-list .nav-item {
+  display: inline;
+  font-size: 1.5rem;
+  padding-left: 3.75rem;
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-link-toggle {
+  display: none;
 }
 
 .navbar-time {
@@ -157,6 +173,10 @@ nav {
   font-size: 2rem;
   font-weight: 900;
   padding: 1rem 2rem;
+}
+
+.market-clock {
+  margin-left: 2rem;
 }
 
 .app {
@@ -177,7 +197,7 @@ nav {
   width: 100%;
 }
 
-.navbar-list li {
+/* .navbar-list li {
   display: inline;
   font-size: 1.5rem;
   padding-left: 5rem;
@@ -188,7 +208,7 @@ li a,
 a {
   color: black;
   text-decoration: none;
-}
+} */
 
 .selected-nav {
   text-decoration: underline;
@@ -681,9 +701,39 @@ footer {
 
 /* MEDIA SIZES REFERENCE: https://medium.com/@sawanrathod/css3-media-query-cheat-sheet-1fab77ea3cb8 */
 
-@media only screen and (max-width: 1200px) {
+
+
+
+@media only screen and (max-width: 1500px) {
+
+  .navbar-time {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+
+  .market-clock {
+    margin-left: 0rem;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+
+  .hide-medium {
+    display: none;
+  }
+
+  .nav-box{ 
+    border-left: .25rem solid rgb(27, 27, 27);
+  }
+
+  nav {
+    margin-left: auto;
+    padding-right: 5rem;
+  }
 
   .news-bar {
+    border-right: none;
     width: 100%;
   }
 
@@ -694,8 +744,57 @@ footer {
 }
 
 
+@media only screen and (max-width: 1000px) {
 
+  .navbar-time {
+    border: none;
+    flex-direction: row;
+    /* font-size: 2rem;
+    font-weight: 900;
+    padding: 1rem 2rem; */
+  }
 
+  .market-clock {
+    margin-left: 2rem;
+  }
+
+  .navbar-list {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-link-toggle {
+    display: flex;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    margin-left: auto;
+  }
+
+  .navbar-toggle-show {
+    border-top: 1px solid rgb(88, 88, 88);
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    padding-left: 5rem;
+  }
+
+  .navbar-toggle-show:first-child{
+    border-top: none;
+  }
+
+  /* .navbar-list .nav-item {
+    display: none;
+  } */
+
+    .navbar-list {
+    display: none;
+  }
+
+}
 
 
 
@@ -708,3 +807,34 @@ footer {
 /* ********************************************************************************************************************** */
 /* ********************************************************************************************************************** */
 /* ********************************************************************************************************************** */
+
+
+/* @media only screen and (max-width: 767px) {} */
+
+@media only screen and (max-width: 800px) {
+  .hide-small {
+    display: none;
+  }
+
+  .navbar-time {
+    font-size: 1.5rem;
+    margin: auto 0;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .hide-xs {
+    display: none;
+  }
+
+  .header-stock-container {
+    /* margin: 2rem 0rem; */
+    padding: .5rem 1.5rem;
+  }
+
+  .market-clock {
+    font-size: 1rem;
+    margin: auto 0 0 3rem;
+  }
+
+}

@@ -71,7 +71,7 @@ function MarketOpen(){
     }
     else { mStatus = 'OPEN' }
 
-    return <span style={{marginLeft: '2rem'}}>Market is <span className={`market-${market}`}>{mStatus}</span></span>
+    return <span className='market-clock'>Market is <span className={`market-${market}`}>{mStatus}</span></span>
 }
 
 

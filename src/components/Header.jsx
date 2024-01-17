@@ -16,10 +16,10 @@ function Header() {
             <img src={stockHQLogo} className="site-logo" alt='StockHQ logo' />
             </NavLink>
         </div>
-        <HeaderStock symbol="AAPL" />
-        <HeaderStock symbol="AMZN" />
-        <HeaderStock symbol="MSFT" />
-        <HeaderStock symbol="NVDA" />
+        <HeaderStock symbol="AAPL" propStyle='hide-xs'/>
+        <HeaderStock symbol="AMZN" propStyle='hide-medium'/>
+        <HeaderStock symbol="MSFT" propStyle='hide-medium'/>
+        <HeaderStock symbol="NVDA" propStyle='hide-small'/>
         <HeaderStock symbol="SPY" />
     </header>
 }

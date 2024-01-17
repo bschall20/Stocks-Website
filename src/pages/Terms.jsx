@@ -10,7 +10,7 @@ function Terms() {
                 {
                     stockTerms.map((term, index) => {
                         return (
-                            <div className='term-box'>
+                            <div className='term-box' key={index}>
                                 <h3 className='term-word'>{index+1}.&#41; {term.word}</h3>
                                 <p className='term-definition'>{term.definition}</p>
                             </div>

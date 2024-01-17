@@ -14,24 +14,22 @@ function Footer() {
                 </NavLink>
             </div>
 
-            <div className='footer-nav'>
-                <ul className="navbar-list">
-                    <li>
+            <div className='footer-nav navbar-list'>
+                    <div>
                         <NavLink to="/" className='footer-link'>
                             Home
                         </NavLink>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <NavLink to="/graph" className='footer-link'>
                             Stock Graph
                         </NavLink>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <NavLink to="/terms" className='footer-link'>
                             Stock Terms
                         </NavLink>
-                    </li>
-                </ul>
+                    </div>
             </div>
 
             <div className='footer-icon-box'>
