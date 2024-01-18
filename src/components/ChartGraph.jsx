@@ -8,13 +8,18 @@ function StockChart(props) {
   let height = 600;
   let width = 1200;
 
-  if (window.matchMedia("(max-width: 800px)").matches) {
+  if (window.matchMedia("(max-width: 625px)").matches) {
+    height = 450
+    width = 350
+  }
+
+  else if (window.matchMedia("(max-width: 850px)").matches) {
     height = 500
-    width = 500
+    width = 600
   }
   else if (window.matchMedia("(max-width: 1300px)").matches) {
     height = 600
-    width = 600
+    width = 800
   }
   else if (window.matchMedia("(max-width: 1500px)").matches) {
     width = 1000

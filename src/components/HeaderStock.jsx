@@ -57,14 +57,12 @@ function HeaderStock(props) {
     }
 
 
-    //return <div className="header-stock-container" style={props.propStyle}>
     return <div className={(props.propStyle==="hide-medium" ? 'header-stock-container hide-medium' : props.propStyle==="hide-small" ? 'header-stock-container hide-small' : props.propStyle==="hide-xs" ? 'header-stock-container hide-xs' : 'header-stock-container')}>
         <div className="header-info">
             <input type="text" className="header-symbol" value={stock} onChange={changeStock} />
             <span className="header-close">{data ? data.c : 'N/A'}</span>
         </div>
         <span>{headerStockPercent ? headerStockPercent : 'N/A'}</span>
-        {/* {headerStockPercent} */}
     </div>
 }
 

@@ -24,12 +24,6 @@ header {
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-
-  /* -webkit-box-shadow: 0 5px 15px 1px #000;
-  -moz-box-shadow: 0 5px 15px 1px #000;
-  box-shadow: 0 5px 15px 1px #000;
-  position: relative;
-  z-index: 10; */
 }
 
 h1 {
@@ -39,7 +33,6 @@ h1 {
 .header-stock-container {
   display: flex;
   justify-content: center;
-  /* background-color: rgba(0,0,0,0.19); */
   border-right: 2px solid rgb(88, 88, 88);
   flex-direction: column;
   flex-grow: 1;
@@ -51,7 +44,6 @@ h1 {
 .site-title {
   display: flex;
   justify-content: center;
-  /* background-color: rgba(0,0,0,0.19); */
   border-right: 2px solid rgb(88, 88, 88);
   flex-direction: row;
   flex-grow: 1;
@@ -63,8 +55,6 @@ h1 {
 .site-logo {
   display: flex;
   margin-left: 1rem;
-  /* height: 40px;
-  width: 40px; */
   height: 2.4rem;
   width: 2.4rem;
 }
@@ -84,7 +74,6 @@ h1 {
 
 .header-symbol {
   all: unset;
-  /* border-bottom: 2px solid rgb(88, 88, 88); */
   color: rgb(240, 206, 156);
   font-size: 1.2rem;
   margin-right: auto;
@@ -125,23 +114,15 @@ h1 {
 
 
 .nav-box {
-  /* background-color: rgb(228, 228, 228); rgb(240, 206, 156)*/
   background-color: rgb(172, 172, 172);
-  /* was silver */
   border: .25rem solid rgb(27, 27, 27);
   border-left: none;
-  /* border-right: none; */
   border-top: none;
-  /* rgb(27, 27, 27) */
   display: flex;
   flex-direction: row;
-  /* padding: 1.2rem 0rem 1.2rem 1.5rem; */
-
   -webkit-box-shadow: 0 2px 15px 1px #000;
   -moz-box-shadow: 0 2px 15px 1px #000;
   box-shadow: 0 2px 15px 1px #000;
-  /* position: relative;
-  z-index: 10; */
 }
 
 nav {
@@ -155,6 +136,10 @@ nav {
   justify-content: center;
   align-items: center;
   margin-left: auto;
+}
+
+.navbar-menu-mini {
+  display: none;
 }
 
 .navbar-list .nav-item,
@@ -174,8 +159,6 @@ a {
 }
 
 .navbar-time {
-  /* display: flex;
-  flex-direction: column; */
   border-right: .15rem solid rgb(27, 27, 27);
   font-size: 2rem;
   font-weight: 900;
@@ -203,19 +186,6 @@ a {
   flex-direction: column;
   width: 100%;
 }
-
-/* .navbar-list li {
-  display: inline;
-  font-size: 1.5rem;
-  padding-left: 5rem;
-}
-
-li a,
-.navbar-time a,
-a {
-  color: black;
-  text-decoration: none;
-} */
 
 .selected-nav {
   text-decoration: underline;
@@ -252,18 +222,11 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* background-color: rgb(20, 51, 98); */
   background-image: url('./images/news-background.png');
-  /* from: https://pattern.monster/japanese-pattern-1/ */
-  /* border-right: .5rem solid rgb(228, 228, 228); */
   border-right: .5rem solid rgb(27, 27, 27);
-  /* border-bottom: .5rem solid rgb(228, 228, 228); */
-  /* height: 80vh; */
   padding-top: 5px;
   width: 27rem;
-  /* width: 20vw; */
   flex-direction: column;
-
 }
 
 .news-section-title {
@@ -272,25 +235,18 @@ a {
   font-size: 2rem;
   font-weight: 900;
   margin-top: 1rem;
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black; */
 }
 
-.news-select {
+.news-select, .stock-select, .time-select{
   border: 2px solid black;
-  color: black;
+  background-color: rgb(240, 206, 156);
+  color: rgb(20, 51, 97);
   margin: 1rem .2rem 0rem;
+  padding: .5rem;
 }
 
-.form-submit {
-  border-radius: .2rem;
-  cursor: pointer;
-  padding: .15rem;
-}
-
-.form-submit:hover {
-  /* box-shadow: 0 .1rem .5rem 0 #22b14c, 0 17px 50px 0 rgba(0,0,0,0.19); */
-  box-shadow: 0 .1rem .5rem 0 #000000, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+.news-select option {
+  color: rgb(20, 51, 97);
 }
 
 .news-data {
@@ -301,12 +257,10 @@ a {
 
 .news-card {
   background-color: white;
-  /* border: .4rem solid rgba(0, 110, 255, 0.6); */
   border: .3em solid rgb(240, 206, 156);
   border-radius: 1.2rem;
   padding: .25rem 0rem 0rem;
   margin: 1rem 0rem 2rem;
-  /* font-size: .8rem; */
 }
 
 .news-card a {
@@ -323,9 +277,6 @@ a {
 .news-number {
   border: 1px solid black;
   border-radius: 50%;
-  /* height: 10px;
-  padding: 5px;
-  width: 10px; */
   height: 1rem;
   padding: .35rem;
   margin: 0rem .9rem .35rem .75rem;
@@ -360,12 +311,6 @@ a {
   text-align: center;
 }
 
-/* hr {
-  border: .1rem solid red;
-  margin: auto;
-  width: 75%;
-} */
-
 .news-source {
   display: flex;
   align-items: center;
@@ -386,7 +331,7 @@ a {
 .news-footer {
   margin-bottom: -.5rem;
   /* Look into if having negative value is okay or not. Likely not.
-                                 Find where to minimalize the padding/margin below source + date. */
+    Find where to minimalize the padding/margin below source + date. */
 }
 
 .page-button {
@@ -397,7 +342,6 @@ a {
 
 .page-change {
   background: none;
-  /* color: inherit; */
   color: rgb(7, 176, 255);
   border: none;
   padding: 0 .5rem;
@@ -502,21 +446,30 @@ a {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  /* height: 80vh; */
   flex-direction: column;
   padding-top: 5px;
   margin: auto;
-
-  /* delete 0 rem to make graph + text stay in middle of page*/
-  /* width: 100%;                      change if you want to make graph and all above text centered... or edit flexbox on this item. */
-  /* border: 2px solid black; */
 }
 
 .stock-select,
 .time-select {
-  border: 2px solid black;
-  color: black;
-  margin: 2rem .2rem 0rem;
+  background-color: rgb(172, 172, 172);
+}
+
+.stock-select option, .time-select option {
+  color: rgb(20, 51, 97);
+}
+
+.form-submit {
+  background-color: rgb(172, 172, 172);
+  border-radius: .2rem;
+  color: rgb(20, 51, 97);
+  cursor: pointer;
+  padding: .55rem;
+}
+
+.form-submit:hover {
+  box-shadow: 0 .1rem .5rem 0 #000000, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .error-API {
@@ -527,18 +480,10 @@ a {
 }
 
 .chart {
-  /* background-color: rgb(20, 51, 98); */
   background-color: rgb(255, 255, 255);
   color: black;
   margin: 2rem auto;
-  /* padding-bottom: 10rem; */
-  /* delete 0 rem to make graph stay in middle of page*/
 }
-
-/* #chart {
-  height: 600px;
-  width: 1200px;
-} */
 
 
 /* ******************************************** */
@@ -614,15 +559,11 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: auto; */
-  /* flex-grow: 1; */
-  /* width: 100%; */
 }
 
 .page-not-found-img {
   position: relative;
   width: 100%;
-  /* flex-grow: 1; */
 }
 
 
@@ -719,8 +660,6 @@ footer {
 /* MEDIA SIZES REFERENCE: https://medium.com/@sawanrathod/css3-media-query-cheat-sheet-1fab77ea3cb8 */
 
 
-
-
 @media only screen and (max-width: 1500px) {
 
   .navbar-time {
@@ -763,30 +702,25 @@ footer {
 
 @media only screen and (max-width: 1000px) {
 
-  /* nav {
-    display: block;
-
-    align-self: center;
-    margin-right: auto;
-    padding-right: 5rem;
-
-  } */
-
   .navbar-menu {
     border: 1px solid rgb(88, 88, 88);
     border-top: none;
     border-bottom: none;
     border-left: none;
     flex-direction: column;
-    /* width: 80%; */
+  }
+
+  .navbar-menu-mini {
+    display: flex;
+    border: 1px solid rgb(88, 88, 88);
+    border-top: none;
+    background-color: rgb(240, 206, 156);
+    flex-direction: column;
   }
 
   .navbar-time {
     border: none;
     flex-direction: row;
-    /* font-size: 2rem;
-    font-weight: 900;
-    padding: 1rem 2rem; */
   }
 
   .market-clock {
@@ -799,7 +733,6 @@ footer {
     cursor: pointer;
     font-size: 2rem;
     margin: 1rem 2rem 1rem auto;
-    /* margin-left: auto; */
     width: 2rem;
     height: 2rem;
   }
@@ -812,14 +745,6 @@ footer {
     width: 100%;
     font-size: 1rem;
   }
-
-  /* .navbar-toggle-show:first-child{
-    border-top: none;
-  } */
-
-  /* .navbar-list .nav-item {
-    display: none;
-  } */
 
   .navbar-list {
     display: none;
@@ -834,17 +759,8 @@ footer {
     width: 100%;
   }
 
-  /* .navbar-list-show {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-  } */
-
   .home-section {
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
     margin: auto;
   }
@@ -856,22 +772,14 @@ footer {
   }
 
   .home-box {
-    /* display: flex;
-  justify-content: space-around; */
     flex-direction: column;
     margin: auto;
-    /* margin-bottom: 3rem; */
   }
 
   .home-box-mid {
     flex-direction: column-reverse;
     margin: auto;
   }
-
-  /* .home-box:last-child {
-  margin-bottom: 0rem;
-} */
-
 
   .footer-link {
     font-size: 1rem;
@@ -892,8 +800,6 @@ footer {
 /* ********************************************************************************************************************** */
 
 
-/* @media only screen and (max-width: 767px) {} */
-
 @media only screen and (max-width: 800px) {
   .hide-small {
     display: none;
@@ -908,10 +814,6 @@ footer {
   .market-clock {
     margin: .5rem 0 0;
   }
-
-  /* .navbar-time {
-    flex-direction: column;
-  } */
 
   .site-logo {
     height: 1.4rem;
@@ -935,17 +837,10 @@ footer {
   }
 
   .header-stock-container {
-    /* margin: 2rem 0rem; */
     padding: .5rem 1.5rem;
   }
 
-  /* .market-clock {
-    font-size: 1rem;
-    margin: auto 0 0 3rem;
-  } */
-
   .home-title {
-    /* text-align: center; */
     width: 20rem;
   }
 
@@ -955,11 +850,14 @@ footer {
     padding-bottom: .25rem;
   }
 
+  .stock-select, .time-select, .form-submit {
+  margin: 1rem .2rem 0rem;
+  padding: .25rem;
+}
+
   .footer-link {
     font-size: 1rem;
-    /* padding-left: 0.5rem; */
   }
-
 
   .footer-nav {
     flex-direction: column;

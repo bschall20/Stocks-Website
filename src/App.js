@@ -17,26 +17,6 @@ import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-    // return (<div className="app">
-    //     <Router>
-    //         <Header />
-    //         <div className="app-main">
-    //             <Aside />                
-    //             <div className="app-content">
-    //                 <Navbar />
-    //                 <Routes>
-    //                     <Route exact path="/" element={<Home />} />
-    //                     <Route path="/graph" element={<Graph />} />
-    //                     <Route path="/news" element={<News />} />
-    //                 </Routes>
-    //             </div>
-    //         </div>
-    //         <Footer />
-    //     </Router>
-    // </div>
-    // );
-
-
     return (<div className='app'>
         <Router>
             <Header />

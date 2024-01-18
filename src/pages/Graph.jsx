@@ -18,15 +18,11 @@ function Graph() {
     axios.get(url)
       .then((res) => {
         setStockData(res.data);
-        // console.log("Use Effect:");
-        // console.log(res.data);
       })
       .catch(error => {
-        //console.log(error);
         console.log(error.message)
         if (error.message === "Request failed with status code 429") {
           setErrorMessage("Too many requests sent to Financial Modeling Prep (251/251). Please wait until tomorrow to request more.")
-          // console.log(errorMessage)
         }
         return error;
       })
@@ -88,45 +84,6 @@ function Graph() {
       </select>
       <button type="submit" className="form-submit">Submit</button>
     </form>
-
-
-    {/* <br />
-    <p style={{ fontWeight: 900 }}>Stock Timeframe: {timeframe}</p>
-    <br />
-    <p style={{ fontWeight: 900 }}>Stock Symbol: {symbol}</p>
-    <br />
-    <p style={{ fontWeight: 900 }}>Stock Date: {dateRange}</p>
-    <br />
-    <p style={{ fontWeight: 900 }}>Stock URL: {url}</p>
-    <br /> */}
-
-
-    {/* Date - Open - High - Low - Close */}
-
-
-    {/* {
-      stockData ? stockData.map((dataObj, index) => {
-        if (index <= 3 && index >= 0) {             // Reference: https://stackoverflow.com/questions/51865400/how-to-get-only-the-first-value-using-map-method-over-an-array-of-object
-          dataArr.unshift({
-            x: new Date(`${dataObj.date}`),
-            y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
-          },)
-          
-          return (
-            <div className="" key={index}>
-              <p className="">Key: {index}</p>
-              <p className="">Date: {dataObj.date}</p>
-              <p className="">Open: {dataObj.open}</p>
-              <p className="">High: {dataObj.high}</p>
-              <p className="">Low: {dataObj.low}</p>
-              <p className="">Close: {dataObj.close}</p>
-              <br />
-            </div>
-          );
-        }
-      }) : null
-    } */}
-
 
     {/*  THIS IS FOR REMOVING DAILY. CAN BE UNCOMMENTED IF WANT TO REMOVE (due to nested loop)
     {
