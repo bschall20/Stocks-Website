@@ -97,16 +97,16 @@ function Graph() {
 
     {
       stockData ?
-        stockData.historical ? stockData.historical.map((dataObj, index) => {          // See if daily was selected then display.
+        stockData.historical ? stockData.historical.forEach((dataObj, index) => {          // See if daily was selected then display.
           dataArr.unshift({                                                            // Is slow due to so many candles.
             x: new Date(`${dataObj.date}`),                                            // NEED TO FIX NESTED LOOP HERE
             y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
-          },)
-        }) : stockData.map((dataObj, index) => {                                      // If not daily, display proper data
+          })
+        }) : stockData.forEach((dataObj, index) => {                                      // If not daily, display proper data
           dataArr.unshift({
             x: new Date(`${dataObj.date}`),
             y: [dataObj.open, dataObj.high, dataObj.low, dataObj.close]
-          },)
+          })
         }) : <div className="error-API">
           <p>{errorMessage}</p>
         </div>
