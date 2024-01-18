@@ -701,6 +701,10 @@ footer {
 
 @media only screen and (max-width: 1000px) {
 
+  nav {
+    padding-right: 0rem;
+  }
+
   .navbar-menu {
     border: 1px solid rgb(88, 88, 88);
     border-top: none;
