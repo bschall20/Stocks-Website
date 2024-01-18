@@ -230,7 +230,6 @@ a {
 }
 
 .news-section-title {
-  /* color: white; */
   color: rgb(240, 206, 156);
   font-size: 2rem;
   font-weight: 900;
@@ -840,12 +839,17 @@ footer {
     padding: .5rem 1.5rem;
   }
 
+  .home-info {
+    margin: 2rem 0;
+  }
+
   .home-title {
+    font-size: 1.5rem;
+    padding: .25rem;
     width: 20rem;
   }
 
-  .term-word,
-  .home-title {
+  .term-word {
     font-size: 1.75rem;
     padding-bottom: .25rem;
   }
