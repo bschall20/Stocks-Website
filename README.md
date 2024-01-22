@@ -1,3 +1,8 @@
+API's Used for App:
+- Charting: https://apexcharts.com/
+- Stock Data for charts: https://site.financialmodelingprep.com/
+- Header/News Stock Data: https://finnhub.io/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
