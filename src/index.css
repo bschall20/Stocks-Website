@@ -702,7 +702,7 @@ footer {
 @media only screen and (max-width: 1000px) {
 
   nav {
-    padding-right: 0rem;
+    padding-right: 0px;
   }
 
   .navbar-menu {
@@ -719,6 +719,7 @@ footer {
     border-top: none;
     background-color: rgb(240, 206, 156);
     flex-direction: column;
+    padding-right: 0px;
   }
 
   .navbar-time {

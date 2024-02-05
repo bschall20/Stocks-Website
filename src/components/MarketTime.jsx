@@ -62,14 +62,14 @@ function MarketOpen(){
             })
     }, [url]);
 
-    useEffect(() => {
-        setMarket(mStatus)
-    }, [mStatus]);
-
     if ((lastMarketDate !== todayNum) || ((lastMarketDate === todayNum) && ((hoursNum === 9 && minutesNum < 30) || (hoursNum >= 16) || (hoursNum < 9)))){
         mStatus = 'CLOSED';
     }
     else { mStatus = 'OPEN' }
+
+    useEffect(() => {
+        setMarket(mStatus)
+    }, [mStatus]);
 
     return <span className='market-clock'>Market is <span className={`market-${market}`}>{mStatus}</span></span>
 }
