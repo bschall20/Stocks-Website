@@ -61,7 +61,6 @@ function returnDate(timeframe) {
     )
 
     const todayDate = days - 1;
-    console.log(`from=${datesArr[0]}&to=${datesArr[todayDate]}`)
     return (`from=${datesArr[0]}&to=${datesArr[todayDate]}`)        //shows oldest date on [0]... prefered for apex?
 }
 
