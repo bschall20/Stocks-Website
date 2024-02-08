@@ -12,10 +12,16 @@ function HeaderStock(props) {
     let stockPercent;
     let headerStockPercent;
 
-    
+
+
+    function changeStock(e) {
+        setStock(e.target.value);
+        setURL(`https://finnhub.io/api/v1/quote?symbol=${e.target.value}&token=${stockKey}`);
+    }
+
     useEffect(() => {
-        //setURL(`https://finnhub.io/api/v1/quote?symbol=${stock}&token=${stockKey}`)
-        axios.get(url)
+        const delayDebounceFn = setTimeout(() => {          // Have to add timer function to allow API to pull data else it doesn't load quick enough.
+            axios.get(url)
             .then((res) => {
                 setData(res.data);
             })
@@ -23,13 +29,11 @@ function HeaderStock(props) {
                 console.log(error);
                 return error;
             })
+        }, 500)
+        return () => clearTimeout(delayDebounceFn)
     }, [url]);
 
-    function changeStock(e) {
-        setStock(e.target.value);
-        setURL(`https://finnhub.io/api/v1/quote?symbol=${e.target.value}&token=${stockKey}`);
-    }
-
+ 
     // Get stock percent
     if (data){
         stockPercent = String(data.dp).charAt(0);
@@ -57,6 +61,7 @@ function HeaderStock(props) {
     }
 
 
+    
     return <div className={(props.propStyle==="hide-medium" ? 'header-stock-container hide-medium' : props.propStyle==="hide-small" ? 'header-stock-container hide-small' : props.propStyle==="hide-xs" ? 'header-stock-container hide-xs' : 'header-stock-container')}>
         <div className="header-info">
             <input type="text" className="header-symbol" value={stock} onChange={changeStock} />

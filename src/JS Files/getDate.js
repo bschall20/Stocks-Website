@@ -19,6 +19,10 @@ function formatDate(date) {
     var month = (date.getMonth() + 1);      // +1 to show today's month
     var year = date.getFullYear();
 
+    if (day > 31){
+        day = 28;
+    }
+
     if (day < 10) {
         day = `0${day}`
     }
@@ -55,7 +59,9 @@ function returnDate(timeframe) {
     const datesArr = business_day_from_date(days, new Date()).map(
         function (date) { return formatDate(date); }
     )
+
     const todayDate = days - 1;
+    console.log(`from=${datesArr[0]}&to=${datesArr[todayDate]}`)
     return (`from=${datesArr[0]}&to=${datesArr[todayDate]}`)        //shows oldest date on [0]... prefered for apex?
 }
 
